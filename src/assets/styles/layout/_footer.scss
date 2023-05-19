@@ -1,0 +1,115 @@
+.footer {
+  background-color: $primary;
+  color: $c-white;
+
+  &__top {
+    padding: 28px svw(20px) 40px;
+    @include respond(tablet) {
+      padding: vw(42px) vw(69px) vw(32px) vw(89px);
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    img {
+      width: 100%;
+      @include respond(tablet) {
+        width: vw(466px);
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+    @include respond(tablet) {
+      display: flex;
+      flex-flow: column;
+
+      &__link {
+        font-size: 16px;
+        line-height: 130%;
+        &:not(:first-child) {
+          margin-top: vw(20px);
+        }
+        @include hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__social {
+    display: none;
+    @include respond(tablet) {
+      display: flex;
+      flex-flow: column;
+      
+      &__link {
+        &:not(:first-child) {
+          margin-top: vw(10px);
+        }
+        svg path {
+          @include transition;
+
+        }
+        @include hover {
+          svg path {
+            fill: $c-pink;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 20px svw(20px) 16px;
+    border-top: 1px solid $c-white;
+
+    @include respond(tablet) {
+      padding: 10px vw(80px);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    
+  }
+
+  &__extra {
+    @include respond(desktop) {
+      display: flex;
+    }
+
+    &__nav {
+      @include respond(desktop, max) {
+        margin-top: 10px;
+      }
+    }
+
+    &__link {
+      margin-left: 6px;
+      @include hover {
+        text-decoration: underline;
+      }
+
+      @include respond(tablet, max) {
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &__builder {
+    @include respond(tablet, max) {
+      margin-top: 10px;
+    }
+
+    a {
+      @include hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+}

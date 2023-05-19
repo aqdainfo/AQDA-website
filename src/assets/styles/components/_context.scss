@@ -1,0 +1,17 @@
+.context {
+  padding: 0 svw(19px);
+  margin-bottom: 55px;
+  @include respond(tablet) {
+    padding: 0 vw(220px);
+    margin-bottom: vw(129px);
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 145%;
+
+    @include respond(tablet) {
+      width: 630px;
+    }
+  }
+}

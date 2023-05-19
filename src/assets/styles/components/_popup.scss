@@ -1,0 +1,85 @@
+.popup{
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @include respond(tablet-small) {
+        width: 733px;
+        height: 688px;
+    }
+    @include respond(desktop-small) {
+        width: 955px;
+        height: 573px;
+    }
+}
+.popup__inner{
+    padding: 25px 21px;
+    background: $c-white;
+    border: 1px solid $c-black;
+    height: 100%;
+    overflow: scroll;
+    @include respond(tablet-small){
+        padding-top: 45px;
+        padding-bottom: 53px;
+        padding-left: 45px;
+        padding-right: 96px;
+    }
+    @include respond(desktop-small) {
+        display: flex;
+        gap: 39px;
+        padding-bottom: 57px;
+        padding-right: 91px;
+        height: max-content;
+    }
+}
+.popup__intro{
+    margin-bottom: 12px;
+    @include respond(desktop-small) {
+        margin-bottom: 0;
+        width: 284px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+.popup__title{
+    margin-bottom: 10px;
+}
+.popup-btn--desk{
+    display: none;
+    @include respond(desktop-small) {
+        display: block;
+    }
+}
+.popup-btn--desk{
+    display: none;
+    @include respond(desktop-small) {
+        display: block;
+    }
+}
+.popup-btn--mob{
+    @include respond(desktop-small) {
+        display: none;
+    }
+}
+.popup__copy {
+    margin-bottom: 22px;
+    @include respond(tablet-small){
+        margin-bottom: 48px;
+    }
+    @include respond(desktop-small) {
+        width: calc(100% - 214px);
+        margin-bottom: 0;
+    }
+    p{
+    margin-bottom: 24px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+}

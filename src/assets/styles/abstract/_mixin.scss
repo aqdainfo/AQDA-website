@@ -1,0 +1,233 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+// Global Media Query
+@mixin respond($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if ($type == min) {
+      $width: $width + 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin orientation($direction) {
+  $orientation-landscape: "(orientation:landscape)";
+  $orientation-portrait: "(orientation:portrait)";
+
+  @if $direction == landscape {
+    @media #{$orientation-landscape} {
+      @content;
+    }
+  }
+  @if $direction == portrait {
+    @media #{$orientation-portrait} {
+      @content;
+    }
+  }
+}
+
+@mixin custom-scrollbar($width: 5px, $color: $accent) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    outline: none;
+  }
+}
+
+// Typography mixins
+@mixin typography(
+  $mobile-font-size,
+  $desktop-font-size,
+  $mobile-lineheight,
+  $desktop-lineheight,
+  $font-weight: 400,
+  $font-family: $f-heading,
+  $color: $heading_color
+) {
+  color: $color;
+  font-size: fs($mobile-font-size, $desktop-font-size);
+  font-family: $font-family;
+  font-weight: $font-weight;
+  line-height: fs($mobile-lineheight, $desktop-lineheight);
+  @include respond(desktop-wide) {
+    font-size: $desktop-font-size;
+    line-height: $desktop-lineheight;
+  }
+}
+
+@mixin font(
+  $mobile-font-size,
+  $desktop-font-size,
+  $font-weight: 400,
+  $font-family: $f-heading,
+  $color: $primary,
+) {
+  color: $color;
+  font-size: fs($mobile-font-size, $desktop-font-size);
+  font-family: $font-family;
+  font-weight: $font-weight;
+  @include respond(desktop-wide) {
+    font-size: $desktop-font-size;
+  }
+}
+
+
+// list style
+@mixin list-style() {
+  ul {
+    margin-top: 2em;
+    li {
+      position: relative;
+      margin-bottom: 1em;
+      padding-left: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 8px;
+        // top: 50%;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background-color: #a0814c;
+        // transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+@mixin pseudo-elements() {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@mixin svgBackground($svg) {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,#{$svg}");
+}
+
+@mixin cover-image() {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin contain-image() {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@mixin when-inside($classes...) {
+  @each $class in $classes {
+    #{$class} & {
+      @content;
+    }
+  }
+}
+
+@mixin square-dot() {
+  &::after {
+    display: inline-block;
+    margin-left: 10px;
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: #2c2828;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin adminbar-offset() {
+  top: 0;
+  @include when-inside(".admin-bar") {
+    top: 32px;
+    @media screen and (max-width: 782px) {
+      top: 46px;
+    }
+  }
+}
+
+@mixin triangle($direction, $color, $width, $height) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  @if $direction == bottom {
+    border-width: $height $width/2 0 $width/2;
+    border-top-color: $color;
+  }
+  @else if $direction == top {
+    border-width: 0 $width/2 $height $width/2;
+    border-bottom-color: $color;
+  }
+  @else if $direction == left {
+    border-width: $height/2 $width $height/2 0;
+    border-right-color: $color;
+  }
+  @else {
+    border-width: $height/2 0 $height/2 $width;
+    border-left-color: $color;
+  }
+}
+
+@mixin element-hidden() {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+@mixin element-show() {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transition: all .3s ease-in-out;
+}
+
+@mixin transition {
+  transition: all .3s ease-in-out;
+}
+
+@mixin max-line($line: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line; /* number of lines to show */
+          line-clamp: $line; 
+  -webkit-box-orient: vertical;
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+@mixin focus {
+    &:hover {
+      @content;
+    }
+}

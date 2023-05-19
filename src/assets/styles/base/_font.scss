@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+//ArchivGrotesk Regular
+@font-face {
+  font-family: "ArchivGrotesk Regular";
+  src: url("../../fonts/ArchivGrotesk-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-size: normal;
+  font-display: swap;
+}
+
+//Silka
+@font-face {
+  font-family: "Silka";
+  src: url("../../fonts/Silka-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-size: normal;
+  font-display: swap;
+}
+
+//Silka RegularItalic
+@font-face {
+  font-family: "Silka RegularItalic";
+  src: url("../../fonts/Silka-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-size: normal;
+  font-display: swap;
+}

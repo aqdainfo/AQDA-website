@@ -1,0 +1,123 @@
+.news {
+  padding: 0 svw(19px);
+
+  @include respond(tablet) {
+    padding: 0 vw(80px);
+  }
+
+  &--recent {
+    .card {
+      &:nth-child(3n+1) {
+        color: $c-white;
+        .card__content {
+          background-color: $c-forest-green;
+        }
+      }
+      &:nth-child(3n+2) {
+        .card__content {
+          background-color: $c-pink;
+        }
+      }
+      &:nth-child(3n) {
+        .card__content {
+          background-color: $c-yellow;
+        }
+      }
+    }
+  }
+
+  &--top {
+    margin-top: 39px;
+    margin-bottom: 39px;
+    @include respond(tablet) {
+      margin-top: vw(84px);
+      margin-bottom: vw(75px);
+    }
+    .card {
+      &:nth-child(3n+1) {
+        color: $c-white;
+        .card__content {
+          background-color: $c-forest-green;
+        }
+      }
+      &:nth-child(3n+2) {
+        .card__content {
+          background-color: $c-pink;
+        }
+      }
+      &:nth-child(3n) {
+        .card__content {
+          background-color: $c-yellow;
+        }
+      }
+    }
+  }
+
+  &__heading {
+    font-size: 30px;
+    color: $c-black;
+    font-weight: 400;
+    line-height: 130%;
+    font-family: $f-heading;
+
+    @include respond(tablet) {
+      font-size: 40px;
+      color: $primary;
+    }
+  }
+
+  &__items {
+    @include respond(tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      // justify-content: space-between;
+    }
+
+    .card {
+      width: 100%;
+      @include respond(tablet, max) {
+        margin-top: 52px;
+        &:first-child {
+          margin-top: 31px;
+        }
+      }
+
+      @include respond(tablet) {
+        width: calc(33% - 14px);
+        margin-top: vw(40px);
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3) {
+          margin-top: 24px;
+        }
+
+        &:nth-child(3n+1),
+        &:nth-child(3n+2) {
+          margin-right: 9px;
+        }
+      }
+        
+      @include respond(desktop) {
+        width: calc(33.3% - 37px);
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3) {
+          margin-top: 24px;
+        }
+        &:nth-child(3n+1),
+        &:nth-child(3n+2) {
+          margin-right: 24px;
+        }
+      }
+        
+      &.card--expand {
+        @include respond(tablet) {
+          @include respond(desktop-small, max) {
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}

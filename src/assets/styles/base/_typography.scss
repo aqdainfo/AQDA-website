@@ -1,0 +1,22 @@
+.p1{
+    font: 400 18px / 130% $f-text;
+}
+
+%heading--2{
+    font: 400 24px / 130% $f-heading;
+    @include respond(tablet){
+        font-size: 30px;
+    }
+}
+%heading--3{
+    font: 400 20px / 130% $f-heading;
+    @include respond(tablet){
+        font-size: 23px;
+    }
+}
+%heading--4{
+    font: 400 16px / 130% $f-heading;
+    @include respond(tablet){
+        font-size: 20px;
+    }
+}

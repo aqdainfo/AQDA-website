@@ -1,0 +1,10 @@
+// general
+export const GENERAL_SET_INTERVIEW_ID = 'GENERAL_SET_INTERVIEW_ID';
+export const GENERAL_SET_LOADED = 'GENERAL_SET_LOADED';
+export const GENERAL_SET__FILTER = 'GENERAL_SET__FILTER';
+
+//interviews
+export const GET_INTERVIEWS = 'GET_INTERVIEWS';
+export const GET_FILTERED_DATA = 'GET_FILTERED_DATA';
+export const RESET_FILTER = 'RESET_FILTER';
+

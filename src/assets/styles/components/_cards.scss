@@ -1,0 +1,111 @@
+.card {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  overflow-y: hidden;
+  font-size: 16px;
+  line-height: 130%;
+  @include respond(tablet) {
+    @include hover {
+      .card__content {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 343px;
+    @include respond(tablet) {
+      height: vw(380px);
+      @include when-inside('.card--expand') {
+        height: vw(280px);
+      }
+    }
+    @include respond(desktop) {
+      height: 380px;
+      @include when-inside('.card--expand') {
+        height: 280px;
+      }
+    }
+
+    img {
+      @include cover-image;
+    }
+  }
+
+  &__content {
+    padding: 16px 31px 12px;
+    margin-top: -60px;
+    position: relative;
+    flex-grow: 1;
+
+    @include respond(tablet) {
+      width: 100%;
+      padding: 16px vw(31px) 12px;
+      &.expand {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translateY(calc(100% + 2px));
+        @include transition;
+      }
+    }
+
+    &.not-expand {
+      background-color: $c-forest-green;
+      color: $c-white;
+    }
+  }
+  
+    &__name {
+      font-family: $f-heading;
+      font-size: 20px;
+      line-height: 130%;
+
+      @include respond(tablet) {
+        font-size: 23px;
+        @include when-inside('.card--expand') {
+          font-size: 18px;
+        }
+      }
+    }
+
+  &__video-name {
+    margin-top: 12px;
+    line-height: 130%;
+    @include respond(tablet) {
+      @include when-inside('.card--expand') {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__video-time {
+    margin-top: 5px;
+    line-height: 130%;
+    @include respond(tablet) {
+      @include when-inside('.card--expand') {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__tags {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 130%;
+    @include respond(tablet) {
+      @include when-inside('.card--expand') {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__tag {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}

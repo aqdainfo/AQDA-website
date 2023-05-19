@@ -1,0 +1,48 @@
+.explorepage {
+  padding-bottom: 59px;
+  @include respond(tablet) {
+    padding-bottom: vw(90px);
+  }
+  .explore__heading {
+    font-size: 30px;
+    font-family: $f-heading;
+    line-height: 130%;
+    color: $c-black;
+    padding: 50px svw(19px) 0;
+  
+    @include respond(tablet) {
+      padding: vw(100px) vw(79px) 0;
+      font-size: 40px;
+      color: $primary;
+    }
+  }
+
+  .news {
+    margin-top: 50px;
+    @include respond(tablet) {
+      margin-top: vw(40px);
+    }
+  }
+
+  .loadmore {
+    margin-top: 49px;
+    @include respond(tablet) {
+      margin-top: vw(46px);
+      background-color: $primary;
+      color: $c-white;
+      @include transition;
+
+      @include hover {
+        background-color: $c-white;
+        color: $primary;
+      }
+    }
+
+    &-wrapper {
+      padding: 0 svw(19px);
+      @include respond(tablet) {
+        text-align: center;
+      }
+    }
+  }
+}
