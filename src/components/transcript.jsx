@@ -138,7 +138,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp }) => {
                             <HighlightedText key={idx} value={item.segmentTitle} highlight={highlightKey} />
 
                             :
-                            <div className="transcript__result__segmenttitle">{item.segmentTitle}.</div>
+                            <div className="transcript__result__segmenttitle">{item.segmentTitle}</div>
                           }
                         </div>
                       )

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import DownloadManager from "./download-manager";
 
 const CitationBox = (props) => {
     const [tooltip, showTooltip] = useState(false);
+    const [downloadManager, showDownloadManager] = useState(false);
 
     const type = props.type;
     const narratorName = props.data.narratorName;
@@ -101,6 +103,8 @@ const CitationBox = (props) => {
         }, 2000);
     }
     return (
+        <React.Fragment>
+        <DownloadManager />
         <div className='citation-box'>
             <div className='preview--mob'>
                 Preview
@@ -151,6 +155,7 @@ const CitationBox = (props) => {
             </div>
 
         </div>
+        </React.Fragment>
     );
 }
 export default CitationBox;

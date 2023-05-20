@@ -53,12 +53,14 @@ const NewsDetail = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
     let scrollTarget = document.querySelector('.tab-content');
-    let scrollTargetY = window.pageYOffset + scrollTarget.getBoundingClientRect().top
+    let scrollTargetY = window.pageYOffset + scrollTarget.getBoundingClientRect().top;
+    if(scrollTarget) {
     if (scrollPosition > scrollTargetY) {
       setFixedContentVisible(true);
     } else {
       setFixedContentVisible(false);
     }
+  }
 
     let transcripts = document.querySelectorAll('.transcript-gen');
     transcripts.forEach(transcript => {

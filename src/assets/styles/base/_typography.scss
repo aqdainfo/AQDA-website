@@ -1,7 +1,9 @@
 .p1{
     font: 400 18px / 130% $f-text;
 }
-
+%p4{
+    font: 400 12px / 130% $f-text;
+}
 %heading--2{
     font: 400 24px / 130% $f-heading;
     @include respond(tablet){
