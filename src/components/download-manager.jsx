@@ -1,8 +1,9 @@
-const DownloadManager = () => {
+const DownloadManager = (props) => {
+    const downloadManagerClose = props.downloadManagerClose;
     return (
         <div className="download-manager__popup">
             <div className="download-manager__inner">
-                <div className="download-manager--close">
+                <div className="download-manager--close" onClick={downloadManagerClose}>
                     <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.9261 18.6072L0.215286 36.2654L0.950104 36.998L18.6609 19.3398L36.3735 36.9997L37.1083 36.2671L19.3958 18.6072L37.3236 0.732635L36.5887 0L18.6609 17.8745L0.734817 0.00169661L0 0.73433L17.9261 18.6072Z" fill="#191718" />
                     </svg>

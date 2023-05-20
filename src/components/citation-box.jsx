@@ -5,6 +5,14 @@ const CitationBox = (props) => {
     const [tooltip, showTooltip] = useState(false);
     const [downloadManager, showDownloadManager] = useState(false);
 
+
+    const downloadManagerOpen = () => {
+        showDownloadManager(true);
+    }
+    const downloadManagerClose = () => {
+        showDownloadManager(false);
+    }
+
     const type = props.type;
     const narratorName = props.data.narratorName;
     const mediaName = props.data.mediaName;
@@ -104,7 +112,7 @@ const CitationBox = (props) => {
     }
     return (
         <React.Fragment>
-        <DownloadManager />
+       {downloadManager && <DownloadManager closeFunction={downloadManagerClose} /> }
         <div className='citation-box'>
             <div className='preview--mob'>
                 Preview
@@ -147,10 +155,13 @@ const CitationBox = (props) => {
                 <div className='citation-box__buttons'>
                     <div className="wrap">
                         {tooltip && <p className="citation-box__tooltip">Copied!</p>}
-                        <button className='btn btn--citation-action btn--black btn--copy' onClick={copyCitationHandler}>Copy</button>
-                        <button className='btn btn--citation-action btn--black btn--download'>Download</button>
+                        <button className='btn btn--citation-action btn--black btn--copy' 
+                            onClick={copyCitationHandler}>Copy</button>
+                        <button className='btn btn--citation-action btn--black btn--download'
+                        onClick={downloadManagerOpen}>Download</button>
                     </div>
-                    <button className='btn btn--citation-action btn--black btn--cancel'>Cancel</button>
+                    <button className='btn btn--citation-action btn--black btn--cancel'
+                    onClick={downloadManagerClose}>Cancel</button>
                 </div>
             </div>
 
