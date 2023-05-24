@@ -17,7 +17,6 @@ const Citation = (props) => {
   const narratorName = props.data.narratorNameD;
   const mediaName = props.data.publishMedia[0].accessName;
   const interviewerName = props.data.interviewer.name;
-  console.log(interviewerName);
 
   const dateFull = props.data.date;
   const day = dateFull.slice(8, 10);
@@ -35,6 +34,7 @@ const Citation = (props) => {
 
   const data = {
     pageTitle: props.data.id,
+    partialTranscription: props.data.partialTranscription,
     accessionDate: accessionDate,
     accessionYear: accessionYear,
     publishedDay: day,

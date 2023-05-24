@@ -25,6 +25,16 @@ const CitationBox = (props) => {
     const accessionYear = props.data.accessionYear;
     const url = props.data.url;
 
+    const downloadingData = {
+        key: props.data.pageTitle,
+        author: interviewerName,
+        title: mediaName,
+        year: publishedYear,
+        doi: "10.1136" + props.data.pageTitle,
+        abstract: props.data.partialTranscription,
+        url: url
+    }
+
     let citation = narratorName
         + ", '" + mediaName + "', interviewed by "
         + interviewerName
@@ -112,7 +122,7 @@ const CitationBox = (props) => {
     }
     return (
         <React.Fragment>
-       {downloadManager && <DownloadManager closeFunction={downloadManagerClose} /> }
+       {downloadManager && <DownloadManager closeFunction={downloadManagerClose} data={downloadingData} /> }
         <div className='citation-box'>
             <div className='preview--mob'>
                 Preview
