@@ -31,7 +31,7 @@ const CitationBox = (props) => {
         title: mediaName,
         year: publishedYear,
         doi: "10.1136" + props.data.pageTitle,
-        abstract: props.data.partialTranscription,
+        abstract: props.data.context,
         url: url
     }
 

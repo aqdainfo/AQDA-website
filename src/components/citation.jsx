@@ -34,7 +34,7 @@ const Citation = (props) => {
 
   const data = {
     pageTitle: props.data.id,
-    partialTranscription: props.data.partialTranscription,
+    context: props.data.contextual,
     accessionDate: accessionDate,
     accessionYear: accessionYear,
     publishedDay: day,
@@ -45,7 +45,6 @@ const Citation = (props) => {
     interviewerName: interviewerName,
     url: url
   };
-
 
   
   

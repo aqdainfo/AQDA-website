@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { renderToStaticMarkup } from 'react-dom/server';
 import { jsonToBibtex } from "@devisle/reference-js";
+import { toXML } from 'jstoxml';
 
 
 
@@ -16,39 +17,227 @@ const DownloadManager = (props) => {
 
     const content = {
         references: [
-          {
-            type: "ARTICLE",
-            key: "interview" + pageTitle,
-            AUTHOR: author,
-            TITLE: title,
-            YEAR: year,
-            WEBSITE: "AQDA",
-            ELOCATIONID: pageTitle,
-            DOI: doi,
-            PUBLISHER: "AQDA",
-            abstract: abstract,
-            URL: url,
-          },
+            {
+                type: "ARTICLE",
+                key: "interview" + pageTitle,
+                AUTHOR: author,
+                TITLE: title,
+                YEAR: year,
+                WEBSITE: "AQDA",
+                ELOCATIONID: pageTitle,
+                VOLUME: 1,
+                DOI: doi,
+                PUBLISHER: "AQDA",
+                ABSTRACT: abstract,
+                URL: url,
+            },
         ]
-      };
-      console.log(content);
+    };
+    console.log(content);
+
+    const xmlContent = {
+        _name: 'xml',
+        _content: {
+            _name: 'records',
+            _content: {
+                record: [
+                    {
+                        _name: 'source-app',
+                        _content: 'Wordpress',
+                        _attrs: {
+                            name: 'Wordpress',
+                            version: '1.1'
+                        },
+                    },
+                    {
+                        _name: 'ref-type',
+                        _content: '17',
+                        _attrs: {
+                            name: 'Website Article',
+                        }
+                    },
+                    {
+                        _name: 'contributors',
+                        _content: {
+                            _name: 'authors',
+                            _content: [
+                                {
+                                    _name: 'style',
+                                    _attrs: {
+                                        face: 'normal',
+                                        font: 'default',
+                                        size: '100%',
+
+                                    },
+                                    _content: {
+                                        _name: 'author',
+                                        _content: author
+                                    }
+                                }
+                            ],
+                        }
+                    },
+                    {
+                        _name: 'titles',
+
+                        _content: [
+                            {
+                                _name: 'style',
+                                _attrs: {
+                                    face: 'normal',
+                                    font: 'default',
+                                    size: '100%',
+
+                                },
+                                _content: {
+                                    _name: 'title',
+                                    _content: title
+                                }
+                            },
+                            {
+                                _name: 'style',
+                                _attrs: {
+                                    face: 'normal',
+                                    font: 'default',
+                                    size: '100%',
+
+                                },
+                                _content: {
+                                    _name: 'secondary-title',
+                                    _content: 'AQDA'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        _name: 'dates',
+                        _content: [
+                            {
+                                _name: 'style',
+                                _attrs: {
+                                    face: 'normal',
+                                    font: 'default',
+                                    size: '100%',
+
+                                },
+                                _content: {
+                                    _name: 'year',
+                                    _content: year
+                                }
+                            },
+                            {
+                                _name: 'style',
+                                _attrs: {
+                                    face: 'normal',
+                                    font: 'default',
+                                    size: '100%',
+
+                                },
+                                _content: {
+                                    _name: 'pub-dates',
+                                    _content: {
+                                        _name: 'date',
+                                        _content: '2022-04-19 09:16:16'
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        _name: 'style',
+                        _attrs: {
+                            face: 'normal',
+                            font: 'default',
+                            size: '100%',
+
+                        },
+                        _content: {
+                            _name: 'elocation-id',
+                            _content: pageTitle,
+                        }
+                    },
+                    {
+                        _name: 'style',
+                        _attrs: {
+                            face: 'normal',
+                            font: 'default',
+                            size: '100%',
+
+                        },
+                        _content: {
+                            _name: 'doi',
+                            _content: doi,
+                        }
+                    },
+                    {
+                        _name: 'style',
+                        _attrs: {
+                            face: 'normal',
+                            font: 'default',
+                            size: '100%',
+
+                        },
+                        _content: {
+                            _name: 'volume',
+                            _content: '1',
+                        }
+                    },
+                    {
+                        _name: 'style',
+                        _attrs: {
+                            face: 'normal',
+                            font: 'default',
+                            size: '100%',
+
+                        },
+                        _content: {
+                            _name: 'issue',
+                            _content: '',
+                        }
+                    },
+                    {
+                        _name: 'style',
+                        _attrs: {
+                            face: 'normal',
+                            font: 'default',
+                            size: '100%',
+
+                        },
+                        _content: {
+                            _name: 'abstract',
+                            _content: abstract,
+                        }
+                    }
+
+                ]
+            }
+
+
+
+
+        }
+    };
+    const config = {
+        header: true,
+        indent: '    '
+    };
+    const xmlFile = toXML(xmlContent, config);
 
     const [example, setExample] = useState("");
 
 
     useEffect(() => {
         jsonToBibtex(JSON.stringify(content), "references")
-          .then(data => setExample(data))
-          .catch(error => setExample(error.message));
-      }, []);
-      console.log(example)
+            .then(data => setExample(data))
+            .catch(error => setExample(error.message));
+    }, []);
 
     const downloadXmlFile = () => {
         const el = React.createElement("animal", { type: "guinea pig", name: "Sparkles" });
         const elementXML = renderToStaticMarkup(el);
 
 
-        const file = new Blob([elementXML], { type: 'text/xml' });
+        const file = new Blob([xmlFile], { type: 'text/xml' });
 
         const element = document.createElement("a");
         element.href = URL.createObjectURL(file);
@@ -61,7 +250,7 @@ const DownloadManager = (props) => {
 
     const downloadBibtexFile = () => {
         const el = React.createElement("animal", { type: "guinea pig", name: "Sparkles" });
-        const bibEl =  jsonToBibtex(JSON.stringify(content), "references");
+        const bibEl = jsonToBibtex(JSON.stringify(content), "references");
 
         console.log(bibEl);
         const file = new Blob([example], { type: 'application/x-bibtex' });
