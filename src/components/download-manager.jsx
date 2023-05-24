@@ -241,7 +241,7 @@ const DownloadManager = (props) => {
 
         const element = document.createElement("a");
         element.href = URL.createObjectURL(file);
-        element.download = "100ideas-" + Date.now() + ".xml";
+        element.download = title + ".xml";
 
         // simulate link click
         document.body.appendChild(element); // Required for this to work in FireFox
