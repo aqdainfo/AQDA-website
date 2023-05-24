@@ -20,16 +20,16 @@ const DownloadManager = (props) => {
             {
                 type: "ARTICLE",
                 key: "interview" + pageTitle,
-                AUTHOR: author,
-                TITLE: title,
-                YEAR: year,
-                WEBSITE: "AQDA",
-                ELOCATIONID: pageTitle,
-                VOLUME: 1,
-                DOI: doi,
-                PUBLISHER: "AQDA",
-                ABSTRACT: abstract,
-                URL: url,
+                author: author,
+                title: title,
+                year: year,
+                website: "AQDA",
+                'elocation-id': pageTitle,
+                doi: doi,
+                volume: 1,
+                publisher: "AQDA",
+                abstract: abstract,
+                url: url,
             },
         ]
     };
@@ -249,22 +249,30 @@ const DownloadManager = (props) => {
     }
 
     const downloadBibtexFile = () => {
-        const el = React.createElement("animal", { type: "guinea pig", name: "Sparkles" });
         const bibEl = jsonToBibtex(JSON.stringify(content), "references");
-
-        console.log(bibEl);
         const file = new Blob([example], { type: 'application/x-bibtex' });
         //const file = '';
         const element = document.createElement("a");
         element.href = URL.createObjectURL(file);
-        element.download = "100ideas-" + Date.now() + ".bib";
+        element.download = title + ".bib";
 
         // simulate link click
         document.body.appendChild(element); // Required for this to work in FireFox
         element.click();
     }
 
+    const downloadTxtFile = () => {
+        const text = "RT Journal Article";
+        const file = new Blob([text], { type: 'text/plain' });
+        //const file = '';
+        const element = document.createElement("a");
+        element.href = URL.createObjectURL(file);
+        element.download = title + ".txt";
 
+        // simulate link click
+        document.body.appendChild(element); // Required for this to work in FireFox
+        element.click();
+    }
 
 
 
@@ -300,7 +308,7 @@ const DownloadManager = (props) => {
                     </div>
                     <div className="download-manager__file">
                         <h4 className="download-manager__file-name">RefWorks Tagged (win & mac)</h4>
-                        <button className="download-manager__file-button btn btn--white">Download</button>
+                        <button className="download-manager__file-button btn btn--white" onClick={downloadTxtFile}>Download</button>
                     </div>
                     <div className="download-manager__file">
                         <h4 className="download-manager__file-name">RIS (win only)</h4>
