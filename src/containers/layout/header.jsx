@@ -58,10 +58,10 @@ const Header = () => {
       </div>
 
       <div className={`header__nav header__nav--mobile${hamburger ? ' open' : ''}`}>
-        <Link to="/" className={`header__nav__item${ pathname === '/' ? ' current' : ''}`}>Home</Link>
-        <Link to="/explore" className={`header__nav__item${ pathname === '/explore' ? ' current' : ''}`}>Explore</Link>
-        <Link to="/about" className={`header__nav__item${ pathname === '/about' ? ' current' : ''}`}>About</Link>
-        <Link to="/contact" className={`header__nav__item${ pathname === '/contact' ? ' current' : ''}`}>Contact</Link>
+        <Link to="/" onClick={handleHamburger} className={`header__nav__item${ pathname === '/' ? ' current' : ''}`}>Home</Link>
+        <Link to="/explore" onClick={handleHamburger} className={`header__nav__item${ pathname === '/explore' ? ' current' : ''}`}>Explore</Link>
+        <Link to="/about" onClick={handleHamburger} className={`header__nav__item${ pathname === '/about' ? ' current' : ''}`}>About</Link>
+        <Link to="/contact" onClick={handleHamburger} className={`header__nav__item${ pathname === '/contact' ? ' current' : ''}`}>Contact</Link>
         <div className="header__social">
           <span className="header__social__label">Follow us</span>
           <div className="header__social__links">
