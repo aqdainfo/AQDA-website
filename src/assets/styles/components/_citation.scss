@@ -15,7 +15,7 @@
         @include respond(tablet) {
             padding: 0 vw(220px);
             display: flex;
-            align-items: flex-end;
+            align-items: center;
         }
         p{
             font: 400 12px / 130% $f-text;

@@ -70,8 +70,10 @@
     border-radius: 20px;
     background-color: $c-yellow;
     font-size: 16px;
+    line-height: 130%;
     padding: 10px 20px;
     transition: 0.5s;
+    font-family: $f-text;
     cursor: pointer;
     &:hover {
       background-color: $c-pink;
@@ -101,7 +103,7 @@
       position: relative;
       display: flex;
       width: fit-content;
-      align-items: center;
+      align-items: flex-start;
       margin: 25px 0;
       cursor: pointer;
     }

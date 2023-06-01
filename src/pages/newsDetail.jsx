@@ -124,7 +124,7 @@ const NewsDetail = () => {
                 <div className="video__time">{parseInt(data.publishMedia[0].length / 60)} minutes</div>
                 <div className="video__tags">
                   <span className="video__tag">{data.sexo}</span>
-                  <span className="video__tag">{(data.gender != undefined).name}</span>
+                  <span className="video__tag">{data.genders}</span>
                   <span className="video__tag">{data.language.name}</span>
                   <span className="video__tag">{data.escapeCountry}</span>
                 </div>
