@@ -43,6 +43,8 @@
     @include respond(tablet) {
       width: 100%;
       padding: 16px vw(31px) 12px;
+      @include transition;
+
       &.expand {
         position: absolute;
         left: 0;
