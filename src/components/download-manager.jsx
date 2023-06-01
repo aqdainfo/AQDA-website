@@ -20,7 +20,7 @@ const DownloadManager = (props) => {
             {
                 type: "ARTICLE",
                 key: "interview" + pageTitle,
-                author: author,
+                author: "Rene",
                 title: title,
                 year: year,
                 website: "AQDA",

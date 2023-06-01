@@ -231,3 +231,13 @@
       @content;
     }
 }
+
+@mixin selected(){
+  &::-moz-selection {
+    background-color: $c-pink;
+  }
+
+  &::selection {
+    background-color: $c-pink;
+  }
+}

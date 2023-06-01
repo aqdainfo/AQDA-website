@@ -82,7 +82,7 @@
 
     &.checked::before {
       left: 27px;
-      background-color: #0075ff;
+      background-color: $c-forest-green;
     }
 
     input {

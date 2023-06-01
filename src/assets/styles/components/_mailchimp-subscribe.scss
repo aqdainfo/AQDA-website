@@ -59,9 +59,14 @@
     border-radius: 50px;
     border: none;
     cursor: pointer;
-
+    font-family: $f-text;
+    @include respond(tablet-small) {
+      font-size: 15px;
+      line-height: 18px;
+    }
     @include respond(tablet) {
-      line-height: 160%;
+      font-size: 16px;
+      line-height: 130%;
     }
   }
 }
