@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import VideoPlayer from "../components/video-player";
+import ReactPlayer from "react-player";
 import Details from "../components/details";
 import Context from "../components/context";
 import Transcript from "../components/transcript";
@@ -101,8 +101,6 @@ const NewsDetail = () => {
 
       {isData &&
         <div className="newsDetail main">
-       
-
           <section className="video">
             <div className="embed-container">
               {!youUrl &&
@@ -110,9 +108,10 @@ const NewsDetail = () => {
               }
 
               {youUrl &&
-                <VideoPlayer
+                <ReactPlayer
                   url={youUrl}
-                  />
+                  controls="true"
+                  ref={ref} />
                 //<iframe width="100%" title={data.publishMedia[0].accessName} height="100%" src={youUrl} frameBorder="0" allowFullScreen />
               }
             </div>
