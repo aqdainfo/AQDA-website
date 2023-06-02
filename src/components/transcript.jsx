@@ -13,7 +13,7 @@ import RightArrow from '../assets/images/icon-arrow-right.svg';
 
 const pgCnt = 4;
 
-const Transcript = ({ data, fixedContentVisible, timestamp }) => {
+const Transcript = ({ data, fixedContentVisible, timestamp, ref }) => {
   const transcripts = data.publishMedia[0].transcriptions;
   const [isTranscript, setIsTranscript] = useState(true);
   const [curTranscript, setCurTranscript] = useState(0);
@@ -30,7 +30,6 @@ const Transcript = ({ data, fixedContentVisible, timestamp }) => {
     let value = e.target.value.toString();
     setSearchKey(value);
   }, []);
-
 
 
 
@@ -96,7 +95,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp }) => {
            <TranscriptGeneral transcripts={transcripts} highlightKey={highlightKey} /> 
            </React.Fragment>
         }
-          {!isTranscript &&  <TranscriptIndex transcripts={transcripts} />}
+          {!isTranscript &&  <TranscriptIndex transcripts={transcripts} ref={ref}/>}
         </div>
 
         <div className="transcript__filter">

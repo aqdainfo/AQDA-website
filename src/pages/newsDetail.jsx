@@ -1,12 +1,15 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import VideoPlayer from "../components/video-player";
 import Details from "../components/details";
 import Context from "../components/context";
 import Transcript from "../components/transcript";
 import Citation from "../components/citation";
 import Related from "../components/related";
+
+
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -14,6 +17,10 @@ const NewsDetail = () => {
   const [tab, setTab] = useState(1);
   const [fixedContentVisible, setFixedContentVisible] = useState(false);
   const [timestamp, setTimestamp] = useState('0:00');
+  //const [videoState, setVideoState] = useState(initialVideoState);
+  const ref = React.createRef();
+
+
 
   const interviews = useSelector(state => state.interviews.interviews);
   let data = [];
@@ -41,12 +48,12 @@ const NewsDetail = () => {
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 200 &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 200 &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-}
+  }
 
 
   const handleScroll = event => {
@@ -54,20 +61,19 @@ const NewsDetail = () => {
     setScrollPosition(position);
     let scrollTarget = document.querySelector('.tab-content');
     let scrollTargetY = window.pageYOffset + scrollTarget.getBoundingClientRect().top;
-    if(scrollTarget) {
-    if (scrollPosition > scrollTargetY) {
-      setFixedContentVisible(true);
-    } else {
-      setFixedContentVisible(false);
+    if (scrollTarget) {
+      if (scrollPosition > scrollTargetY) {
+        setFixedContentVisible(true);
+      } else {
+        setFixedContentVisible(false);
+      }
     }
-  }
 
     let transcripts = document.querySelectorAll('.transcript-gen');
     transcripts.forEach(transcript => {
       let transcriptY = window.pageYOffset + transcript.getBoundingClientRect().top
-      if(isInViewport(transcript)){
+      if (isInViewport(transcript)) {
         let timestamp = transcript.querySelector('.transcript__timestamp').dataset.timestamp;
-        console.log(timestamp);
         setTimestamp(timestamp);
       }
     });
@@ -95,13 +101,7 @@ const NewsDetail = () => {
 
       {isData &&
         <div className="newsDetail main">
-          <section className="breadcrumb">
-            <span className="static">Status</span>
-            <span className="icon">{'>'}</span>
-            <span className="static">Identify</span>
-            <span className="icon">{'>'}</span>
-            <span className="link">{data.publishMedia[0].accessName}</span>
-          </section>
+       
 
           <section className="video">
             <div className="embed-container">
@@ -110,7 +110,10 @@ const NewsDetail = () => {
               }
 
               {youUrl &&
-                <iframe width="100%" title={data.publishMedia[0].accessName} height="100%" src={youUrl} frameBorder="0" allowFullScreen />
+                <VideoPlayer
+                  url={youUrl}
+                  />
+                //<iframe width="100%" title={data.publishMedia[0].accessName} height="100%" src={youUrl} frameBorder="0" allowFullScreen />
               }
             </div>
 
@@ -139,16 +142,16 @@ const NewsDetail = () => {
             <div className={`tab btn ${tab === 4 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(4)}>Citation</div>
             <div className={`tab btn ${tab === 5 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(5)}>Related Stories</div>
           </section>
-            <section className={`tabs tabs--fixed ${fixedContentVisible ? "is--visible" : ""}`}>
-              <div className={`tab btn ${tab === 1 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(1)}>Details</div>
-              <div className={`tab btn ${tab === 2 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(2)}>Context</div>
-              <div className={`tab btn ${tab === 3 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(3)}>Transcript</div>
-              <div className={`tab btn ${tab === 4 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(4)}>Citation</div>
-              <div className={`tab btn ${tab === 5 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(5)}>Related Stories</div>
-            </section>
+          <section className={`tabs tabs--fixed ${fixedContentVisible ? "is--visible" : ""}`}>
+            <div className={`tab btn ${tab === 1 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(1)}>Details</div>
+            <div className={`tab btn ${tab === 2 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(2)}>Context</div>
+            <div className={`tab btn ${tab === 3 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(3)}>Transcript</div>
+            <div className={`tab btn ${tab === 4 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(4)}>Citation</div>
+            <div className={`tab btn ${tab === 5 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(5)}>Related Stories</div>
+          </section>
 
-          <Element tab={tab} data={data} id={id} interviews={interviews} fixedContentVisible={fixedContentVisible} 
-          timestamp={timestamp}/>
+          <Element tab={tab} data={data} id={id} interviews={interviews} fixedContentVisible={fixedContentVisible}
+            timestamp={timestamp} />
         </div>
       }
     </>
@@ -157,12 +160,14 @@ const NewsDetail = () => {
 
 export default NewsDetail;
 
+
+
 function Element(props) {
 
   switch (props.tab) {
     case 2: return <Context data={props.data} />
-    case 3: return <Transcript data={props.data} fixedContentVisible={props.fixedContentVisible} 
-    timestamp={props.timestamp}/>
+    case 3: return <Transcript data={props.data} fixedContentVisible={props.fixedContentVisible}
+      timestamp={props.timestamp}  />
     case 4: return <Citation data={props.data} />
     case 5: return <Related data={props.data} id={props.id} interviews={props.interviews} />
     case 1: return <Details data={props.data} />
