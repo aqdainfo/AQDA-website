@@ -145,3 +145,12 @@
     }
   }
 }
+.video{
+  margin-top: 20px;
+  @include respond(tablet-small) {
+   margin-top: 38px;
+  }
+  @include respond(tablet) {
+    margin-top: 56px;
+   }
+}
