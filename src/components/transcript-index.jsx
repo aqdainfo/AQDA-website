@@ -2,6 +2,7 @@ const TranscriptIndex = (props) => {
 
     const transcripts = props.transcripts;
 
+
     return(
         <div className='transcript__index'>
                     <button onClick={() => props.ref.current.seekTo(10)}>Seek to 00:10</button>

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import ReactPlayer from "react-player";
+import VideoPlayer from "../components/video-player";
 import Details from "../components/details";
 import Context from "../components/context";
 import Transcript from "../components/transcript";
@@ -16,9 +17,18 @@ const NewsDetail = () => {
   const [isData, setIsData] = useState(false);
   const [tab, setTab] = useState(1);
   const [fixedContentVisible, setFixedContentVisible] = useState(false);
-  const [timestamp, setTimestamp] = useState('0:00');
+  const [scrollingTimestamp, setScrollingTimestamp] = useState('0:00');
+  const [videoTimestamp, setVideoTimestamp] = useState('');
   //const [videoState, setVideoState] = useState(initialVideoState);
   const ref = React.createRef();
+
+  const videoTimestampHandler = (videoTimestamp) => {
+    setVideoTimestamp(videoTimestamp);
+    var timestampArray = videoTimestamp.split(":");
+    var timestampSeconds = (parseInt(timestampArray[0], 10) * 60 * 60) + (parseInt(timestampArray[1], 10) * 60) + parseInt(timestampArray[2], 10);
+    console.log(timestampSeconds);
+    ref.current.seekTo(timestampSeconds);
+  };
 
 
 
@@ -60,8 +70,8 @@ const NewsDetail = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
     let scrollTarget = document.querySelector('.tab-content');
-    let scrollTargetY = window.pageYOffset + scrollTarget.getBoundingClientRect().top;
     if (scrollTarget) {
+      let scrollTargetY = window.pageYOffset + scrollTarget.getBoundingClientRect().top;
       if (scrollPosition > scrollTargetY) {
         setFixedContentVisible(true);
       } else {
@@ -73,8 +83,8 @@ const NewsDetail = () => {
     transcripts.forEach(transcript => {
       let transcriptY = window.pageYOffset + transcript.getBoundingClientRect().top
       if (isInViewport(transcript)) {
-        let timestamp = transcript.querySelector('.transcript__timestamp').dataset.timestamp;
-        setTimestamp(timestamp);
+        let scrollingTimestamp = transcript.querySelector('.transcript__timestamp').dataset.timestamp;
+        setScrollingTimestamp(scrollingTimestamp);
       }
     });
   };
@@ -110,9 +120,8 @@ const NewsDetail = () => {
               {youUrl &&
                 <ReactPlayer
                   url={youUrl}
-                  controls="true"
+                  controls={true}
                   ref={ref} />
-                //<iframe width="100%" title={data.publishMedia[0].accessName} height="100%" src={youUrl} frameBorder="0" allowFullScreen />
               }
             </div>
 
@@ -150,7 +159,7 @@ const NewsDetail = () => {
           </section>
 
           <Element tab={tab} data={data} id={id} interviews={interviews} fixedContentVisible={fixedContentVisible}
-            timestamp={timestamp} />
+            timestamp={scrollingTimestamp} videoTimestampHandler={videoTimestampHandler}/>
         </div>
       }
     </>
@@ -166,7 +175,7 @@ function Element(props) {
   switch (props.tab) {
     case 2: return <Context data={props.data} />
     case 3: return <Transcript data={props.data} fixedContentVisible={props.fixedContentVisible}
-      timestamp={props.timestamp}  />
+      timestamp={props.timestamp} videoTimestampHandler={props.videoTimestampHandler} />
     case 4: return <Citation data={props.data} />
     case 5: return <Related data={props.data} id={props.id} interviews={props.interviews} />
     case 1: return <Details data={props.data} />

@@ -13,8 +13,9 @@ import RightArrow from '../assets/images/icon-arrow-right.svg';
 
 const pgCnt = 4;
 
-const Transcript = ({ data, fixedContentVisible, timestamp, ref }) => {
+const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampHandler }) => {
   const transcripts = data.publishMedia[0].transcriptions;
+
   const [isTranscript, setIsTranscript] = useState(true);
   const [curTranscript, setCurTranscript] = useState(0);
   const totalCountDefault = transcripts.length;
@@ -22,6 +23,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref }) => {
   const [highlightKey, setHighlightKey] = useState('');
   const [filteredItems, setFilteredItems] = useState(transcripts);
   const [totalCount, setTotalcount] = useState(totalCountDefault);
+
 
 
 
@@ -76,8 +78,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref }) => {
       return prevState
     })
   }
-  function itemSelect(index) {
-  }
+
 
   return (
     <section className="transcript tab-content" >
@@ -95,7 +96,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref }) => {
            <TranscriptGeneral transcripts={transcripts} highlightKey={highlightKey} /> 
            </React.Fragment>
         }
-          {!isTranscript &&  <TranscriptIndex transcripts={transcripts} ref={ref}/>}
+          {!isTranscript &&  <TranscriptIndex transcripts={transcripts} ref={ref} videoTimestampHandler={videoTimestampHandler}/>}
         </div>
 
         <div className="transcript__filter">
@@ -131,7 +132,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref }) => {
                   filteredItems.map((item, idx) => {
                     if (idx >= pgCnt * curTranscript && idx < pgCnt * (curTranscript + 1)) {
                       return (
-                        <div className="transcript__result__item" key={idx} onClick={(idx) => itemSelect(idx)}>
+                        <button className="transcript__result__item" key={idx}  onClick={() => videoTimestampHandler(item.timestampText)}>
                           <div className="transcript__result__timestamp">{item.timestampText} </div>
                           {isTranscript ?
                             <HighlightedText key={idx} value={item.segmentTitle} highlight={highlightKey} />
@@ -139,7 +140,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref }) => {
                             :
                             <div className="transcript__result__segmenttitle">{item.segmentTitle}</div>
                           }
-                        </div>
+                        </button>
                       )
                     }
                     return
