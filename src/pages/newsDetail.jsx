@@ -19,6 +19,7 @@ const NewsDetail = () => {
   const [fixedContentVisible, setFixedContentVisible] = useState(false);
   const [scrollingTimestamp, setScrollingTimestamp] = useState('0:00');
   const [videoTimestamp, setVideoTimestamp] = useState('');
+  const [play, setPlay] = useState(false);
   //const [videoState, setVideoState] = useState(initialVideoState);
   const ref = React.createRef();
 
@@ -28,6 +29,7 @@ const NewsDetail = () => {
     var timestampSeconds = (parseInt(timestampArray[0], 10) * 60 * 60) + (parseInt(timestampArray[1], 10) * 60) + parseInt(timestampArray[2], 10);
     console.log(timestampSeconds);
     ref.current.seekTo(timestampSeconds);
+    setPlay(true);
   };
 
 
@@ -120,6 +122,7 @@ const NewsDetail = () => {
               {youUrl &&
                 <ReactPlayer
                   url={youUrl}
+                  playing={play}
                   controls={true}
                   ref={ref} />
               }
