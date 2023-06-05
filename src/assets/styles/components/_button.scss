@@ -8,7 +8,7 @@
   cursor: pointer;
   border: 1px solid $primary;
   @include transition;
-  
+  color: $c-black;
   @include respond(tablet) {
     padding: 12px 25px;
     line-height: 130%;
