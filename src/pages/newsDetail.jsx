@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import ReactPlayer from "react-player";
-import VideoPlayer from "../components/video-player";
 import Details from "../components/details";
 import Context from "../components/context";
 import Transcript from "../components/transcript";

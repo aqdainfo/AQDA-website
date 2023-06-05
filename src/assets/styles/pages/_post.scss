@@ -19,20 +19,32 @@
   }
 
   .video {
+    @include respond(tablet-small) {
+      padding: 0 vw(100px);
+    }
     @include respond(tablet) {
       padding: 0 vw(220px);
+    }
+    &__info__right{
+      @include respond(tablet-small) {
+      text-align: right;
+      }
+    @include respond(tablet) {
+      text-align: left;
+  }
     }
 
     &__info {
       padding: 0 svw(19px);
       margin-top: 27px;
 
-      @include respond(tablet) {
+      @include respond(tablet-small) {
         padding: 0;
         margin-top: 23px;
         display: flex;
         justify-content: space-between;
       }
+
     }
 
     &__name {
