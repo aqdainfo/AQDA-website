@@ -17,20 +17,27 @@ const Citation = (props) => {
   const narratorName = props.data.narratorNameD;
   const mediaName = props.data.publishMedia[0].accessName;
   const interviewerName = props.data.interviewer.name;
+  
+  let day; let accessionDay; let accessionMonthNumber; let accessionMonthName;
+  let accessionYear; let accessionDate;
 
   const dateFull = props.data.date;
-  const day = dateFull.slice(8, 10);
+  if(dateFull) {
+    day = dateFull.slice(8, 10);
+  }
   const monthNumber = dateFull.slice(5, 7);
   const monthName = getMonthName(monthNumber);
   const publishedDate = day + ' ' + monthName;
   const publishedYear = dateFull.slice(0, 4);
 
   const accessionDateFull = props.data.publishMedia[0].accessionDate;
-  const accessionDay = accessionDateFull.slice(8, 10);
-  const accessionMonthNumber = accessionDateFull.slice(5, 7);
-  const accessionMonthName = getMonthName(accessionMonthNumber);
-  const accessionYear = accessionDateFull.slice(0, 4);
-  const accessionDate = accessionDay + ' ' + accessionMonthName;
+  if(accessionDateFull) {
+   accessionDay = accessionDateFull.slice(8, 10);
+   accessionMonthNumber = accessionDateFull.slice(5, 7);
+   accessionMonthName = getMonthName(accessionMonthNumber);
+   accessionYear = accessionDateFull.slice(0, 4);
+   accessionDate = accessionDay + ' ' + accessionMonthName;
+  }
 
   const data = {
     pageTitle: props.data.id,
