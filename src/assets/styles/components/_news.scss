@@ -67,54 +67,31 @@
   }
 
   &__items {
-    @include respond(tablet) {
-      display: flex;
-      flex-wrap: wrap;
+    margin-top: 24px;
+    @include respond(tablet-small) {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-row-gap: 20px;
+      grid-column-gap: 20px;
       // justify-content: space-between;
+    }
+    @include respond(desktop){
+      grid-row-gap: 40px;
+      grid-column-gap: 70px;
+      margin-top: 23px;
     }
 
     .card {
       width: 100%;
       @include respond(tablet, max) {
-        margin-top: 52px;
-        &:first-child {
-          margin-top: 31px;
-        }
       }
 
-      @include respond(tablet) {
-        width: calc(33% - 14px);
-        margin-top: vw(40px);
-        &:first-child,
-        &:nth-child(2),
-        &:nth-child(3) {
-          margin-top: 24px;
-        }
-
-        &:nth-child(3n+1),
-        &:nth-child(3n+2) {
-          margin-right: 9px;
-        }
-      }
-        
-      @include respond(desktop) {
-        width: calc(33.3% - 37px);
-        &:first-child,
-        &:nth-child(2),
-        &:nth-child(3) {
-          margin-top: 24px;
-        }
-        &:nth-child(3n+1),
-        &:nth-child(3n+2) {
-          margin-right: 24px;
-        }
-      }
         
       &.card--expand {
         @include respond(tablet) {
           @include respond(desktop-small, max) {
             width: 100%;
-            margin-right: 0;
           }
         }
       }
