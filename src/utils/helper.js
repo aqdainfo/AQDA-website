@@ -378,22 +378,7 @@ export const calcFilterData = (interviews, filters, searchKey) => {
   } else {
     result = interviews;
   }
-/*
-  // Gender
-  interviews = result;
-  const isGenderAllDeactivated = Object.values( filters.genders ).every( v => !v.checked )
 
-  if(!isGenderAllDeactivated)  {
-    result = interviews.filter((item)=>{      
-      return Object.entries( filters.genders ).some( ( [key, v] ) => {
-        if ( !v.checked ) return false
-        return item.gender.name === key  
-      })
-    })
-  } else {
-    result = interviews;
-  }
-  */
 
   // Migration
   interviews = result;

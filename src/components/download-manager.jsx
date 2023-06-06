@@ -260,8 +260,8 @@ const DownloadManager = (props) => {
         element.click();
     }
 
-    const downloadTxtFile = () => {
-        const text = "RT Journal Article";
+   const downloadTxtFile = () => {
+        /* const text = "RT Journal Article";
         const file = new Blob([text], { type: 'text/plain' });
         //const file = '';
         const element = document.createElement("a");
@@ -271,6 +271,7 @@ const DownloadManager = (props) => {
         // simulate link click
         document.body.appendChild(element); // Required for this to work in FireFox
         element.click();
+        */
     }
 
 

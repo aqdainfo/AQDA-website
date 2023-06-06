@@ -17,7 +17,7 @@ const Citation = (props) => {
   const narratorName = props.data.narratorNameD;
   const mediaName = props.data.publishMedia[0].accessName;
   const interviewerName = props.data.interviewer.name;
-  
+
   let day; let accessionDay; let accessionMonthNumber; let accessionMonthName;
   let accessionYear; let accessionDate;
 
@@ -27,7 +27,6 @@ const Citation = (props) => {
   }
   const monthNumber = dateFull.slice(5, 7);
   const monthName = getMonthName(monthNumber);
-  const publishedDate = day + ' ' + monthName;
   const publishedYear = dateFull.slice(0, 4);
 
   const accessionDateFull = props.data.publishMedia[0].accessionDate;

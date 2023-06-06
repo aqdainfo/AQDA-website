@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -19,11 +19,11 @@ const NewsDetail = () => {
   const [scrollingTimestamp, setScrollingTimestamp] = useState('0:00');
   const [videoTimestamp, setVideoTimestamp] = useState('');
   const [play, setPlay] = useState(false);
-  //const [videoState, setVideoState] = useState(initialVideoState);
+
   const ref = React.createRef();
 
-  const videoTimestampHandler = (videoTimestamp) => {
-    setVideoTimestamp(videoTimestamp);
+  const videoTimestampHandler = (videoTimestampVal) => {
+    setVideoTimestamp(videoTimestampVal);
     var timestampArray = videoTimestamp.split(":");
     var timestampSeconds = (parseInt(timestampArray[0], 10) * 60 * 60) + (parseInt(timestampArray[1], 10) * 60) + parseInt(timestampArray[2], 10);
     ref.current.seekTo(timestampSeconds);
@@ -66,7 +66,7 @@ const NewsDetail = () => {
   }
 
 
-  const handleScroll = event => {
+  const handleScroll = useCallback(event => {
     const position = window.pageYOffset;
     setScrollPosition(position);
     let scrollTarget = document.querySelector('.tab-content');
@@ -81,13 +81,13 @@ const NewsDetail = () => {
 
     let transcripts = document.querySelectorAll('.transcript-gen');
     transcripts.forEach(transcript => {
-      let transcriptY = window.pageYOffset + transcript.getBoundingClientRect().top
       if (isInViewport(transcript)) {
         let scrollingTimestamp = transcript.querySelector('.transcript__timestamp').dataset.timestamp;
         setScrollingTimestamp(scrollingTimestamp);
       }
     });
-  };
+
+  }, [scrollPosition]);
 
   useEffect(() => {
 
@@ -97,7 +97,7 @@ const NewsDetail = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrollPosition, data]);
+  }, [scrollPosition, handleScroll]);
 
 
   return (

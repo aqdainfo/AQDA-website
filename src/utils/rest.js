@@ -7,7 +7,6 @@ const MIGRATIONS = '/d1/migrations';
 const SEXOS = '/d1/sexos';
 const LANGUAGES = '/d1/languages';
 const GENDERS = '/d1/genders';
-const CITATIONS = '/d1/citations';
 const INTERVIEW_ALL_URL = '/d1/interviews?expand=narrator,citation,interviewer,migration,language,pronouns,genders,sexo,publishMedia,publishMedia%2Etranscriptions,publishMedia%2Estorages';
 
 const REST = {

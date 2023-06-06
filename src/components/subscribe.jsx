@@ -39,6 +39,7 @@ const CustomForm = ({ status, message, onValidated }) => {
         {status !== "success" ? (
           <>
             <div className="mc__field-container">
+              <label for="newsletter" className='is--hidden'>Subscribe</label>
               <input type="email" id="newsletter" onChange={(e) => setEmail(e.target.value)} />
             </div>
             <input type="submit" value="Subscribe" className='mc__submit' />

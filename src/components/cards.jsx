@@ -16,7 +16,7 @@ const Card = ({ data, exClass=' expand' }) => {
         <p className="card__video-time">{ parseInt(data.publishMedia[0].length / 60) } minutes</p>
         <div className="card__tags">
           <span className="card__tag">{ data.sexo },</span>
-          <span className="card__tag">{ data.gender?.name },</span>
+          <span className="card__tag">{ data.genders },</span>
           <span className="card__tag">{ data.language.name },</span>
           <span className="card__tag">{ data.escapeCountry }</span>
         </div>

@@ -1,10 +1,8 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react';
-import { Controller, Scene } from 'react-scrollmagic';
+import React, { useCallback, useState } from 'react';
 import TranscriptGeneral from './transcript-gen';
 import TranscriptIndex from './transcript-index';
 import HighlightedText from './highlight-text';
-import { Tween, Timeline } from 'react-gsap';
-import { useIsVisible } from '../hooks/use-is-visible-hook';
+
 
 import ToggleSwitch from './toggle-switch';
 import LeftArrow from '../assets/images/icon-arrow-left.svg';
@@ -14,6 +12,7 @@ import RightArrow from '../assets/images/icon-arrow-right.svg';
 const pgCnt = 4;
 
 const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampHandler }) => {
+
   const transcripts = data.publishMedia[0].transcriptions;
 
   const [isTranscript, setIsTranscript] = useState(true);
@@ -25,13 +24,13 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
   const [totalCount, setTotalcount] = useState(totalCountDefault);
 
 
-
+ 
 
 
   const handleInput = useCallback(e => {
     let value = e.target.value.toString();
     setSearchKey(value);
-  }, [searchKey]);
+  }, []);
 
 
 
@@ -143,7 +142,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
                         </button>
                       )
                     }
-                    return
+                    return ;
                   }
                   )
                 }

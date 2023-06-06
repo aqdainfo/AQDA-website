@@ -86,3 +86,9 @@ textarea {
   flex-flow: column;
   justify-content: space-between;
 }
+.is--hidden{
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  left: -9999;
+}

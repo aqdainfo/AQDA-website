@@ -2,18 +2,7 @@
 const Details = ({data}) => {
   const year = new Date().getFullYear();
 
-  const downloadTxtFile = () => {
-    const obj = 'hello world';
-    const file = new Blob([JSON.stringify(obj, null, 2)], {
-      type: "application/xml",
-    });
-    const element = document.createElement("a");
-    element.href = URL.createObjectURL(file);
-    element.download = "100ideas-" + Date.now() + ".xml";
-    document.body.appendChild(element); // Required for this to work in FireFox
-    element.click();
-}
-  
+
   return (
     <section className="details tab-content">
       <div className="details__info">
