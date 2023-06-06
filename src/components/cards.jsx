@@ -7,7 +7,7 @@ const Card = ({ data, exClass=' expand' }) => {
   return (
     <Link className={`card${ exClass ? '' : ' card--expand' }`} to={`/explore/${data.id}`}>
       <div className="card__img">
-        <img src={`${BASE_URL}${data.image}`} alt={data.accessionName} />
+        <img src={`${BASE_URL}${data.image}`} alt={data.accessionName} loading="lazy" />
       </div>
 
       <div className={`card__content${exClass ? exClass : ' not-expand' }`}>

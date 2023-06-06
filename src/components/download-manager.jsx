@@ -33,7 +33,6 @@ const DownloadManager = (props) => {
             },
         ]
     };
-    console.log(content);
 
     const xmlContent = {
         _name: 'xml',

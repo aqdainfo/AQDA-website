@@ -31,7 +31,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
   const handleInput = useCallback(e => {
     let value = e.target.value.toString();
     setSearchKey(value);
-  }, []);
+  }, [searchKey]);
 
 
 
