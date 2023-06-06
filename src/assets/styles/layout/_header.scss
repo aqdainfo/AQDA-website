@@ -49,7 +49,7 @@
     padding-left: vw(36px);
     padding-right: vw(36px);
     background-color: $c-yellow;
-
+    display: none;
     @include respond(desktop-small, max) {
       font-size: 18px;
       padding-left: 24px;

@@ -1,13 +1,14 @@
 .popup{
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
+    width: calc(100% - 40px);
+    height: calc(100% - 110px);
     position: fixed;
     z-index: 100;
-    top: 0;
+    top: 90px;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 20px;
     @include respond(tablet-small) {
         width: 733px;
         height: 688px;
@@ -15,10 +16,11 @@
     @include respond(desktop-small) {
         width: 955px;
         height: 573px;
+        top: 100px;
     }
 }
 .popup__inner{
-    padding: 25px 21px;
+    padding: 25px 15px;
     background: $c-white;
     border: 1px solid $c-black;
     height: 100%;
@@ -53,12 +55,12 @@
     }
 }
 .popup__title{
-    margin-bottom: 10px;
-}
-.popup-btn--desk{
-    display: none;
-    @include respond(desktop-small) {
-        display: block;
+    margin-bottom: 15px;
+    @include respond(tablet-small) {
+        margin-bottom: 34px;
+    }
+    h1{
+        @extend %heading--1;
     }
 }
 .popup-btn--desk{
@@ -73,7 +75,7 @@
     }
 }
 .popup__copy {
-    margin-bottom: 22px;
+    margin-bottom: 36px;
     @include respond(tablet-small){
         margin-bottom: 48px;
     }
@@ -83,8 +85,14 @@
     }
     p{
     margin-bottom: 24px;
+    @extend %p3;
     &:last-child{
         margin-bottom: 0;
     }
 }
+}
+.popup--close{
+    font-size: 24px;
+    line-height: 130%;
+    padding: 12px 25px;
 }
