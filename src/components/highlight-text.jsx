@@ -6,7 +6,7 @@ function getHighlightedText(text, higlight) {
     return parts.map((part, index) => (
         <React.Fragment key={index}>
             {part.toLowerCase() === higlight.toLowerCase() ? (
-                <b style={{ backgroundColor: "#e8bb49" }}>{part}</b>
+                <b style={{ backgroundColor: "#EDB81E", textDecoration: "underline"}}>{part}</b>
             ) : (
                 part
             )}

@@ -5,7 +5,6 @@ const TranscriptIndex = (props) => {
 
     return(
         <div className='transcript__index'>
-           <button onClick={() => props.ref.current.seekTo(10)}>Seek to 00:10</button>
 
         {transcripts.map((item, idx) => (
           <div className="transcript__item" key={idx}>

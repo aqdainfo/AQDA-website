@@ -44,24 +44,45 @@
   }
 
   &__content {
-    padding: 18px 21px;
-    border: 1px solid black;
     width: 100%;
+    @include respond(tablet-small){
+      width: 450px;
+    }
     @include respond(tablet){
-    width: 420px;
+      border: 1px solid black;
+      padding: 20px;
+      padding-bottom: 20px;
+
     }
   }
 
   &__search {
-    margin-bottom: 25px;
+    margin-bottom: 33px;
+    @include respond(tablet-small){
+      margin-bottom: 50px;
+    }
+    @include respond(tablet){
+      margin-bottom: 20px;
+    }
   }
   
   &__searchbox {
     border: 1px solid black;
     border-radius: 20px 0 0 20px;
-    padding: 10px 20px;
+    padding: 11px 20px;
     font-size: 16px;
-    width: calc(100% - 120px)
+    width: calc(100% - 150px);
+    font-family: $f-text;
+    @include respond(tablet-small){
+      width: calc(100% - 125px);
+    }
+    @include focus{
+
+      &::placeholder{
+        opacity: 0;
+        @include transition;
+      }
+    }
   }
 
   &__searchbtn {
@@ -71,7 +92,7 @@
     background-color: $c-yellow;
     font-size: 16px;
     line-height: 130%;
-    padding: 10px 20px;
+    padding: 11px 24.5px;
     transition: 0.5s;
     font-family: $f-text;
     cursor: pointer;
@@ -81,22 +102,78 @@
   }
 
   &__result {
+    border: 1px solid $c-black;
+    padding: 22px;
+    @include respond(tablet-small){
+      padding-right: 18px;
+    }
+    @include respond(tablet){
+      padding: 0;
+      border: none;
+    }
     &__header {
-      display: flex;
+      margin-bottom: 23px;
+      @include respond(tablet-small){
+        display: flex;
       justify-content: space-between;
+      margin-bottom: 50px;
+      align-items: center
+          }
+          @include respond(tablet){
+            margin-bottom: 27px;
+          }
+      p{
+        @extend %heading--4;
+        margin-bottom: 26px;
+        @include respond(tablet-small){
+          font-size: 20px;
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__index{
+      margin-right: 10px;
     }
     &__buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      @include respond(tablet-small){
+        width: 110px;
+      }
+      @include respond(tablet){
+        width: 43px;
+      }
+
+      button{
+        background-color: $c-white;
+        @include respond(tablet-small){
+          width: 34px;
+        }
+        @include respond(tablet){
+          width: 16px;
+        }
+      }
+      img{
+        width: 100%;
+      }
       .next__page {
         border: none;
         cursor: pointer;
+        padding: 0;
       }
       .prev__page {
         border: none;
         cursor: pointer;
+        padding: 0;
       }
     }
     &__content {
 
+    }
+    &__segmenttitle{
+      margin-bottom: 20px;
+      font-size: 16px;
     }
   
     &__item {
@@ -104,10 +181,16 @@
       display: flex;
       width: fit-content;
       align-items: flex-start;
-      margin: 25px 0;
       cursor: pointer;
       background: none;
       border: none;
+      text-align: left;
+      padding: 0;
+      font-size: 18px;
+        p, span{
+        line-height: 200%;
+        }
+      
     }
     &__timestamp {
       margin-right: 20px;
@@ -188,7 +271,7 @@
       pointer-events: none;
       transition: all .3s ease;
       padding-bottom: 10px;
-      @include respond(tablet){
+      @include respond(tablet-small){
         top: 165px;
 
       }

@@ -50,7 +50,7 @@
     padding-right: vw(36px);
     background-color: $c-yellow;
     display: none;
-    @include respond(desktop-small, max) {
+    @include respond(tablet-small) {
       font-size: 18px;
       padding-left: 24px;
       padding-top: 10px;
@@ -58,15 +58,14 @@
       padding-right: 0;
       line-height: 140%;
       width: 47%;
+      display: block;
     }
     @include respond(desktop-small){
       width: 30%;
       font-size: 23px;
       line-height: 130%;
     }
-    @include respond(mobile, max) {
-      display: none;
-    }
+
 
     @include respond(desktop) {
       padding-left: clamp(10px, calc( 6.042vw - 79px ), 2.5vw);

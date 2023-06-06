@@ -132,10 +132,15 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
                     if (idx >= pgCnt * curTranscript && idx < pgCnt * (curTranscript + 1)) {
                       return (
                         <button className="transcript__result__item" key={idx}  onClick={() => videoTimestampHandler(item.timestampText)}>
+                          {!isTranscript &&
                           <div className="transcript__result__timestamp">{item.timestampText} </div>
-                          {isTranscript ?
-                            <HighlightedText key={idx} value={item.segmentTitle} highlight={highlightKey} />
+                    }
 
+                          {isTranscript ?
+                          <React.Fragment>
+                            <span className='transcript__result__index'>{idx + 1}.</span>
+                            <HighlightedText key={idx} value={item.segmentTitle} highlight={highlightKey} />
+                            </React.Fragment>
                             :
                             <div className="transcript__result__segmenttitle">{item.segmentTitle}</div>
                           }
