@@ -4,16 +4,24 @@
 
   &__top {
     padding: 28px svw(20px) 40px;
-    @include respond(tablet) {
-      padding: vw(42px) vw(69px) vw(32px) vw(89px);
+    @include respond(tablet-small){
       display: flex;
       justify-content: space-between;
+      padding: 29px vw(52px) 22px;
+      align-items: flex-start;
+    }
+    @include respond(tablet) {
+      padding: vw(42px) vw(69px) vw(32px) vw(89px);
+      
     }
   }
 
   &__logo {
     img {
       width: 100%;
+      @include respond(tablet-small) {
+        width: 316px;
+      }
       @include respond(tablet) {
         width: vw(466px);
       }
@@ -76,11 +84,28 @@
   }
 
   &__extra {
+    position: relative;
     @include respond(desktop) {
       display: flex;
     }
 
     &__nav {
+      @include respond(tablet-small){
+        position: absolute;
+        right: 0;
+        width: 220px;
+        top: 0;
+        text-align: right;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-top: 0;
+      }
+      @include respond(tablet){
+        position: static;
+        flex-wrap: nowrap;
+        width: unset;
+      }
       @include respond(desktop, max) {
         margin-top: 10px;
       }
@@ -91,7 +116,9 @@
       @include hover {
         text-decoration: underline;
       }
-
+      @include respond(tablet-small){
+        margin-bottom: 5px;
+      }
       @include respond(tablet, max) {
         &:first-child {
           margin-left: 0;
