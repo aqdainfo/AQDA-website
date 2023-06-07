@@ -26,7 +26,10 @@
     color: $primary;
     animation: leaves 3s ease-in-out infinite alternate;
     -webkit-animation: leaves 3s ease-in-out infinite alternate;
-
+    @include respond(tablet-small){
+      width: vw(139px, 834px);
+     height: vw(139px, 834px);
+    }
     @include respond(tablet-wide) {
       position: absolute;
       margin-bottom: 0;
@@ -34,7 +37,9 @@
 
     &:nth-child(2n+1):not(:last-child) {
       margin-right: 12vw;
-
+      @include respond(tablet-small) {
+        margin-right: 10px;
+      }
       @include respond(tablet-wide) {
         margin-right: 0;
       }

@@ -10,7 +10,9 @@
     &__logo {
       line-height: 130%;
       font-family: $f-heading;
-      
+      @include respond(tablet-small){
+        width: 400px;
+      }
 
       &--mobile {
         font-size: 30px;
@@ -60,6 +62,9 @@
     }
 
     &__left {
+      @include respond(tablet-small){
+        width: 400px;
+      }
       @include respond(tablet-wide) {
         max-width: 531px;
         position: relative;
@@ -104,8 +109,13 @@
     }
 
     &__right {
-      @include respond(tablet-wide) {
+      @include respond(tablet-small) {
         position: absolute;
+        right: 0;
+        top: 30px;
+        width: 385px;
+      }
+      @include respond(tablet-wide) {
         right: vw(80px);
         top: 50%;
         transform: translateY(-50%);
