@@ -58,7 +58,7 @@
       padding-right: 0;
       line-height: 140%;
       width: 47%;
-      display: block;
+      display: flex;
     }
     @include respond(desktop-small){
       width: 30%;
