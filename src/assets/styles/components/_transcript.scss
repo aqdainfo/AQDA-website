@@ -33,7 +33,11 @@
   }
 
   &__filter {
-
+    @include respond(tablet-small){
+    height: max-content;
+    position: sticky;
+    top: 220px;
+    }
   }
 
   &__header {
