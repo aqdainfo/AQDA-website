@@ -34,9 +34,13 @@
     position: absolute;
     top: -120px;
     right: 0;
-
+    @include respond(tablet-small) {
+      top: 0;
+      right: 24px;
+    }
     @include respond(tablet-wide) {
       top: -70px;
+      
     }
   }
 
@@ -51,8 +55,12 @@
         display: none;
       }
     }
-
+    text-transform: uppercase;
+    @include respond(tablet-small){
+      text-transform: capitalize;
+    }
     &--desktop {
+      text-transform: uppercase;
       @include respond(tablet-wide, max) {
         display: none;
       }

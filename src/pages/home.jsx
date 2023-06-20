@@ -74,8 +74,8 @@ const Home = () => {
         <div className="banner__right">
           <div className="banner__switch">
             <div className="banner__labels">
-              <span className={`banner__label banner__label--mobile${ migFlag ? ' hide' : ''}`}>SOGIESC</span>
-              <span className={`banner__label banner__label--mobile${ migFlag ? '' : ' hide'}`}>MIGRATION</span>
+              <span className={`banner__label banner__label--mobile${ migFlag ? ' hide' : ''}`}>Sogiesc</span>
+              <span className={`banner__label banner__label--mobile${ migFlag ? '' : ' hide'}`}>Migration</span>
               <span className={`banner__label banner__label--desktop`}>SOGIESC*</span>
             </div>
 

@@ -2,7 +2,9 @@
   .banner {
     padding: 18px svw(12px) 50px;
     position: relative;
-
+    @include respond(tablet-small) {
+      padding-top: 55px;
+    }
     @include respond(tablet-wide) {
       padding: vw(107px) vw(80px) vw(155px) vw(87px);
     }
@@ -19,14 +21,14 @@
         color: $c-black;
         display: flex;
         flex-flow: column;
-        @include respond(tablet-wide) {
+        @include respond(tablet-small) {
           display: none;
         }
       }
 
       &--desktop {
         display: none;
-        @include respond(tablet-wide) {
+        @include respond(tablet-small) {
           display: block;
           color: $c-white;
           font-size: 32px;
@@ -37,7 +39,7 @@
         }
       }
 
-      @include respond(tablet-wide) {
+      @include respond(tablet-small) {
         &__item {
           display: inline-block;
           padding: 0 7px;

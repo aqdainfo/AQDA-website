@@ -2,6 +2,41 @@ import React, { useState, useEffect } from "react";
 import { renderToStaticMarkup } from 'react-dom/server';
 import { jsonToBibtex } from "@devisle/reference-js";
 import { toXML } from 'jstoxml';
+require('@citation-js/plugin-refworks');
+require('@citation-js/plugin-enw')
+
+
+const { Cite } = require('@citation-js/core');
+
+const enwInput = Cite(/*`
+%0 Journal Article
+%A Willighagen, Lars G.
+%E Peroni, Silvio
+%P e214
+%V 5
+%J PeerJ Computer Science
+%T Citation.js: a format-independent, modular bibliography tool for the browser and command line
+%8 2019-08-12
+%R 10.7717/peerj-cs.214
+%@ 2376-5992
+%U https://peerj.com/articles/cs-214/
+`*/)
+let enwOutput = enwInput.format('enw', { format: 'text', lineEnding: '\n' });
+
+const refWorksInput = Cite(`RT Journal Article
+SR Electronic(1)
+A1 Lars G. Willighagen
+JF PeerJ Computer Science
+A2 Silvio Peroni
+VO 5
+YR 2019
+FD august 12
+SP e214
+T1 Citation.js: a format-independent, modular bibliography tool for the browser and command line
+`);
+let refWorksOutput = refWorksInput.format('refworks', { format: 'text', lineEnding: '\n' });
+
+
 
 
 
@@ -260,10 +295,21 @@ const DownloadManager = (props) => {
         element.click();
     }
 
-   const downloadTxtFile = () => {
-        /* const text = "RT Journal Article";
-        const file = new Blob([text], { type: 'text/plain' });
+    const downloadEnwFile = () => {
+        const file = new Blob([enwOutput], { type: 'application/enw' });
         //const file = '';
+        const element = document.createElement("a");
+        element.href = URL.createObjectURL(file);
+        element.download = title + ".enw";
+
+        // simulate link click
+        document.body.appendChild(element); // Required for this to work in FireFox
+        element.click();
+
+    }
+
+    const downloadTxtFile = () => {
+        const file = new Blob([refWorksOutput], { type: 'text/plain' });
         const element = document.createElement("a");
         element.href = URL.createObjectURL(file);
         element.download = title + ".txt";
@@ -271,7 +317,7 @@ const DownloadManager = (props) => {
         // simulate link click
         document.body.appendChild(element); // Required for this to work in FireFox
         element.click();
-        */
+        
     }
 
 
@@ -300,7 +346,7 @@ const DownloadManager = (props) => {
                     </div>
                     <div className="download-manager__file">
                         <h4 className="download-manager__file-name">EndNote (tagged)</h4>
-                        <button className="download-manager__file-button btn btn--white">Download</button>
+                        <button className="download-manager__file-button btn btn--white" onClick={downloadEnwFile}>Download</button>
                     </div>
                     <div className="download-manager__file">
                         <h4 className="download-manager__file-name">EndNote 8 (xml)</h4>
