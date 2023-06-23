@@ -8,7 +8,6 @@ const SearchList = () => {
   const [page, setPage] = useState(0);
   const interviews = useSelector(state => state.interviews);
   const news = interviews.filterData.slice(0, 12 * (page + 1));
-  console.log(news)
 
   useEffect(()=> {
     if ( (page + 1) * 12 < interviews.length ) {

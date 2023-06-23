@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 const Popup = () => {
-    console.log(localStorage.getItem('popupStatus'));
     const [visible, setVisible] = useState(false);
         useEffect(()=>{
           let popupStatus = localStorage.getItem('popupStatus');

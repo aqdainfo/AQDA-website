@@ -306,7 +306,6 @@ export const filterByGenders = (items, gen) => {
       });
     });
   }
-  console.log(genData);
   return genData;
  
 }
@@ -360,19 +359,22 @@ export const filterBySexos = (items, ses) => {
 export const calcFilterData = (interviews, filters, searchKey) => { 
   let result = []
 
+  let searchKeyCapitalised = searchKey.charAt(0).toUpperCase() + searchKey.slice(1).toLowerCase();
   //Search Key
   if ( searchKey ) {
     result = interviews.filter( item => {
-      return (item.accessionName.indexOf(searchKey) > -1) || 
-             (item.narratorNameD.indexOf(searchKey) > -1) ||
-             (item.interviewer.name.indexOf(searchKey) > -1) ||
-             (item.interviewer.bio.indexOf(searchKey) > -1) ||
-             (item.migration.name.indexOf(searchKey) > -1) ||
-             (item.language.name.indexOf(searchKey) > -1) ||
-             (item.genders.indexOf(searchKey) > -1) ||
-             (item.pronouns.indexOf(searchKey) > -1) ||
-             (item.sexo.indexOf(searchKey) > -1) ||
-             (item.contextual.indexOf(searchKey) > -1)
+      
+
+      return (item.accessionName.indexOf(searchKeyCapitalised) > -1) || 
+             (item.narratorNameD.indexOf(searchKeyCapitalised) > -1) ||
+             (item.interviewer.name.indexOf(searchKeyCapitalised) > -1) ||
+             (item.interviewer.bio.indexOf(searchKeyCapitalised) > -1) ||
+             (item.migration.name.indexOf(searchKeyCapitalised) > -1) ||
+             (item.language.name.indexOf(searchKeyCapitalised) > -1) ||
+             (item.genders.indexOf(searchKeyCapitalised) > -1) ||
+             (item.pronouns.indexOf(searchKeyCapitalised) > -1) ||
+             (item.sexo.indexOf(searchKeyCapitalised) > -1) ||
+             (item.contextual.indexOf(searchKeyCapitalised) > -1)
 
     })
   } else {

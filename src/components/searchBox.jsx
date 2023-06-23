@@ -49,7 +49,7 @@ const SearchBox = ({open, setOpen}) => {
         <div className="search__lg-label">Search Keywords</div>
         
         <div className="search__input__wrapper">
-          <input type="text" className="search__input__field" onChange={ e => handleInput(e) } value={ searchKey } />
+          <input type="text" className="search__input__field" onChange={ e => handleInput(e) } value={ searchKey } autoCapitalize="words" />
           <button className="search__submit btn btn--white" onClick={ () => onSearch() }>Search</button>
           <button className="search__reset btn btn--white" onClick={ () => onReset() }>Reset</button>
         </div>
