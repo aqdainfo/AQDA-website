@@ -3,6 +3,7 @@
     padding: 12px 25px;
     border-radius: 28px;
     margin-top: 20px;
+    cursor: pointer;
     @include respond(tablet-small){
         margin-top: 25px;
     }

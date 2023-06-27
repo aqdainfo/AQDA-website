@@ -87,6 +87,7 @@
     @include respond(tablet-small){
       width: calc(100% - 125px);
     }
+
     @include focus{
 
       &::placeholder{
@@ -180,7 +181,10 @@
       }
     }
     &__content {
-
+      @include respond(tablet){
+        max-height: 40vh;
+        overflow: scroll;
+      }
     }
     &__segmenttitle{
       margin-bottom: 20px;
