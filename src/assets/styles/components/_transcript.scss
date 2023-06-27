@@ -34,7 +34,7 @@
   }
 
   &__filter {
-    @include respond(tablet-small){
+    @include respond(tablet){
     height: max-content;
     position: sticky;
     top: 220px;
@@ -51,6 +51,9 @@
   &__content {
     width: 100%;
     @include respond(tablet-small){
+      width: 450px;
+    }
+    @include respond(tablet){
       width: 30vw;
     }
     @include respond(desktop){
