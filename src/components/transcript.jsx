@@ -132,7 +132,8 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
                     if (idx >= pgCnt * curTranscript && idx < pgCnt * (curTranscript + 1)) {
                       return (
 
-                        <button className="transcript__result__item" key={idx}  onClick={() => isTranscript && videoTimestampHandler(item.timestampText)}>
+                        <button className="transcript__result__item" key={idx}  
+                          onClick={() => isTranscript && videoTimestampHandler(item.timestampText)}>
                           {!isTranscript &&
                           <div className="transcript__result__timestamp">{item.timestampText} </div>
                     }

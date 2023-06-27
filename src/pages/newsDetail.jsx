@@ -28,6 +28,10 @@ const NewsDetail = () => {
     var timestampSeconds = (parseInt(timestampArray[0], 10) * 60 * 60) + (parseInt(timestampArray[1], 10) * 60) + parseInt(timestampArray[2], 10);
     ref.current.seekTo(timestampSeconds);
     setPlay(true);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+  });
   };
 
 
