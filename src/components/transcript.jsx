@@ -22,7 +22,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
   const [highlightKey, setHighlightKey] = useState('');
   const [filteredItems, setFilteredItems] = useState(transcripts);
   const [totalCount, setTotalcount] = useState(totalCountDefault);
-
+  const [activeAccordionItem, setActiveAccordionItem] = useState('');
 
  
 
@@ -78,6 +78,16 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
     })
   }
 
+  const transcriptAccordionHandler = (timestamp) => {
+    transcripts.forEach((item, idx) => {
+      if(item.timestampText === timestamp){
+        setActiveAccordionItem(item.segmentTitle);
+      }
+      console.log(activeAccordionItem);
+
+  });
+  }
+
 
   return (
     <section className="transcript tab-content" >
@@ -92,10 +102,12 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
                 <span className='transcript__timestamp-var'>{timestamp}</span>
               </div>
              
-           <TranscriptGeneral transcripts={transcripts} highlightKey={highlightKey} /> 
+           <TranscriptGeneral transcripts={transcripts} highlightKey={highlightKey} videoTimestampHandler={videoTimestampHandler} /> 
            </React.Fragment>
         }
-          {!isTranscript &&  <TranscriptIndex transcripts={transcripts} ref={ref} videoTimestampHandler={videoTimestampHandler}/>}
+          {!isTranscript &&  <TranscriptIndex transcripts={transcripts} ref={ref}
+          activeItem={activeAccordionItem}
+           />}
         </div>
 
         <div className="transcript__filter">
@@ -133,7 +145,11 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
                       return (
 
                         <button className="transcript__result__item" key={idx}  
-                          onClick={() => isTranscript && videoTimestampHandler(item.timestampText)}>
+                          onClick={() => 
+                          {isTranscript && videoTimestampHandler(item.timestampText)
+                          !isTranscript && transcriptAccordionHandler(item.timestampText)
+                          }
+                          }>
                           {!isTranscript &&
                           <div className="transcript__result__timestamp">{item.timestampText} </div>
                     }

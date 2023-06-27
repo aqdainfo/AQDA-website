@@ -1,39 +1,27 @@
+import TranscriptAccordion from "./transcript-accordion";
 const TranscriptIndex = (props) => {
 
-    const transcripts = props.transcripts;
+
+  const transcripts = props.transcripts;
 
 
-    return(
-        <div className='transcript__index'>
+  return (
+    <div className='transcript__index'>
 
-        {transcripts.map((item, idx) => (
-          <div className="transcript__item" key={idx}>
-            <div className="transcript__timestamp"><span>{item.timestampText}</span> {item.segmentTitle}</div>
+      {transcripts.map((item, idx) => (
+        <TranscriptAccordion
+          key={idx}
+          timestampText={item.timestampText}
+          segmentTitle={item.segmentTitle}
+          partialTranscription={item.partialTranscription}
+          synopsis={item.synopsis}
+          keywords={item.keywords}
+          subject={item.subject}
+          activeItem={props.activeItem}
+        />
 
-            <div className="transcript__inner">
-              <div className="transcript__subheading">Partial Transcription</div>
-              <div className="transcript__text">{item.partialTranscription}</div>
-
-              <div className="transcript__subheading">Segment Synopsis</div>
-              <div className="transcript__text">{item.synopsis ? item.synopsis : 'N/A'}</div>
-
-              <div className="transcript__subheading">Keywords</div>
-              {item.keywords ?
-                <div className="transcript__keywords">
-                  {item.keywords.split('; ').map((keyword, i) => (
-                    <span key={i} className="transcript__keyword">{keyword}</span>
-                  ))}
-                </div>
-                :
-                <div className="transcript__keywords">There is no Keyword!</div>
-              }
-
-              <div className="transcript__subheading">Subjects</div>
-              <div className="transcript__text">{item.subject ? item.subject : 'N/A'}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    )
+      ))}
+    </div>
+  )
 }
 export default TranscriptIndex;
