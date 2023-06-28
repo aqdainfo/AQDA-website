@@ -2,7 +2,7 @@
     border: 1px solid $primary;
     padding: 12px 25px;
     border-radius: 28px;
-    margin-top: 20px;
+    margin-top: 12px;
     cursor: pointer;
     @include respond(tablet-small){
         margin-top: 25px;
@@ -42,4 +42,7 @@
         width: calc(100% - 117px);
         }
     }
+}
+.transcript__item:not(:first-child).transcript__accordion{ 
+    margin-top: 12px;
 }
