@@ -1,10 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { useEffect } from 'react';
+import HighlightedText from './highlight-text';
+
 
 
 const TranscriptAccordion = (props) => {
     const [isActive, setIsActive] = useState(false);
     const elRef = useRef();
+    const highlightKey = props.highlightKey;
 
     useEffect(() => {
         if (props.activeItem === props.segmentTitle) {
@@ -31,7 +34,9 @@ const TranscriptAccordion = (props) => {
             {isActive &&
                 <div className="transcript__inner transcript__accordion-body">
                     <div className="transcript__subheading">Partial Transcription</div>
-                    <div className="transcript__text">{props.partialTranscription}</div>
+                    <div className="transcript__text">
+                       <HighlightedText key={props.idx} value={props.partialTranscription} highlight={highlightKey} />
+                        </div>
 
                     <div className="transcript__subheading">Segment Synopsis</div>
                     <div className="transcript__text">{props.synopsis ? props.synopsis : 'N/A'}</div>

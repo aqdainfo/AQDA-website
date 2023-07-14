@@ -106,7 +106,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
            </React.Fragment>
         }
           {!isTranscript &&  <TranscriptIndex transcripts={transcripts} ref={ref}
-          activeItem={activeAccordionItem}
+          activeItem={activeAccordionItem} highlightKey={highlightKey}
            />}
         </div>
 
@@ -154,14 +154,10 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
                           <div className="transcript__result__timestamp">{item.timestampText} </div>
                     }
 
-                          {isTranscript ?
                           <React.Fragment>
                             <span className='transcript__result__index'>{idx + 1}.</span>
                             <HighlightedText key={idx} value={item.segmentTitle} highlight={highlightKey} />
                             </React.Fragment>
-                            :
-                            <div className="transcript__result__segmenttitle">{item.segmentTitle}</div>
-                          }
                         </button>
                       )
                     }

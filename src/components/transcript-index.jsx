@@ -18,6 +18,7 @@ const TranscriptIndex = (props) => {
           keywords={item.keywords}
           subject={item.subject}
           activeItem={props.activeItem}
+          highlightKey={props.highlightKey}
         />
 
       ))}
