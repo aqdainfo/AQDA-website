@@ -21,7 +21,7 @@ const CitationBox = (props) => {
     const publishedMonth = props.data.publishedMonth;
     const publishedDate = publishedDay + ' ' + publishedMonth;
     const publishedYear = props.data.publishedYear;
-    const accessionDate = props.data.accessionDate;
+    const accessionDate = props.data.accessedDate;
     const accessionYear = props.data.accessionYear;
     const url = props.data.url;
 
@@ -30,9 +30,12 @@ const CitationBox = (props) => {
         author: interviewerName,
         title: mediaName,
         year: publishedYear,
+        date: publishedDate,
         doi: "10.1136" + props.data.pageTitle,
         abstract: props.data.context,
-        url: url
+        url: url,
+        accesedDate: props.data.accessionDate,
+        interviewee: props.data.narratorName
     }
 
     let citation = narratorName

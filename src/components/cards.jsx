@@ -12,8 +12,8 @@ const Card = ({ data, exClass=' expand' }) => {
 
       <div className={`card__content${exClass ? exClass : ' not-expand' }`}>
         <h2 className="card__name">{ data.narratorNameD }</h2>
-        <p className="card__video-name">{ data.publishMedia[0].accessName }</p>
-        <p className="card__video-time">{ parseInt(data.publishMedia[0].length / 60) } minutes</p>
+        <p className="card__video-name">{ /*data.publishMedia[0].accessName*/ }</p>
+        <p className="card__video-time">{ /*parseInt(data.publishMedia[0].length / 60) */ } minutes</p>
         <div className="card__tags">
           <span className="card__tag">{ data.sexo },</span>
           <span className="card__tag">{ data.genders },</span>
