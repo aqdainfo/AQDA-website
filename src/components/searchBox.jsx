@@ -56,7 +56,7 @@ const SearchBox = ({open, setOpen}) => {
       </div>
 
       <div className="search__filter search__filter--gender">
-        <div className="search__label">Gender</div>
+        <div className="search__label">Gender identities and expressions</div>
         
         <div className="search__filter__wrapper">
           { Object.keys(interviews.filters.gen).map( (key) => 
@@ -72,7 +72,7 @@ const SearchBox = ({open, setOpen}) => {
       </div>
 
       <div className="search__filter search__filter--ses">
-        <div className="search__label">Sexuality</div>
+        <div className="search__label">Sexual Orientations</div>
         
         <div className="search__filter__wrapper">
           { Object.keys(interviews.filters.ses).map( (key) => 
@@ -138,7 +138,7 @@ const SearchBox = ({open, setOpen}) => {
       </div>
 
       <div className="search__filter search__filter--migration">
-        <div className="search__label">Choose Status</div>
+        <div className="search__label">Migration Status</div>
         
         <div className="search__filter__wrapper">
         { Object.keys(interviews.filters.migrations).map( (key) => 
