@@ -26,6 +26,8 @@
     color: $primary;
     animation: leaves 3s ease-in-out infinite alternate;
     -webkit-animation: leaves 3s ease-in-out infinite alternate;
+    border: none;
+    background: none;
     @include respond(tablet-small){
       width: vw(139px, 834px);
      height: vw(139px, 834px);

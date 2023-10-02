@@ -4,7 +4,6 @@ const BASE_URL = 'https://cdhr-enki.anu.edu.au';
 
 
 const Card = ({ data, exClass=' expand' }) => {
-  console.log(data.publishMedia[0]);
   return (
     <Link className={`card${ exClass ? '' : ' card--expand' }`} to={`/explore/${data.id}`}>
       <div className="card__img">

@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
-
+import ShapeBtn from "./shape-btn";
 const AnimMIG = () => {
-  const migrations = useSelector(state => state.interviews.filteredDataByType.migrations)
+  const migrations = useSelector(state => state.interviews.filteredDataByType.migrations);
+
   return (
     <div className="anim__mig anim__wrapper">
-      <div className="anim__item anim__item--asylum">{migrations['Asylum seeker'] ? migrations['Asylum seeker'] : '0'} Asylum Seekers</div>
-      <div className="anim__item anim__item--migrant">{migrations['Migrant'] ? migrations['Migrant'] : '0'}<br/>Migrant</div>
-      <div className="anim__item anim__item--refugee">{migrations['Refugee'] ? migrations['Refugee'] : '0'} Refugees</div>
+        <ShapeBtn class="anim__item--asylum" quantity={migrations['Asylum seeker']} name="Asylum seeker" />
+        <ShapeBtn class="anim__item--migrant" quantity={migrations['Migrant seeker']} name="Migrant" />
+        <ShapeBtn class="anim__item--refugee" quantity={migrations['Refugee']} name="Refugee" />
     </div>
   )
 }

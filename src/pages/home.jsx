@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useCallback } from 'react';
 
 import Card from '../components/cards';
 import AnimMig from '../components/anim-mig';
 import AnimSog from '../components/anim-sog';
-
+import * as InterviewACtions from '../store/actions/interviews';
 import data from '../global';
 
 const Home = () => {
@@ -17,6 +17,9 @@ const Home = () => {
   let count = 0;
   let pKey = false;
   let cKey = false;
+
+
+
 
   Object.keys(initFilter).forEach( key => {
     if (key === 'gen' || key === 'ses' || key === 'migrations' ) {
@@ -93,7 +96,7 @@ const Home = () => {
         <div className="banner__left">
           <div className="banner__logo banner__logo--desktop">
             {logoArr.map((item, key) =>(
-              <span className={ `banner__logo__item banner__logo__item--${ key + 1 }` } key={key}> { item } </span>
+              <span className={ `banner__logo__item banner__logo__item--${ key + 1 }` } key={key} > { item } </span>
             ))}
           </div>
 
