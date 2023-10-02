@@ -32,3 +32,18 @@
     line-height: 130%;
   }
 }
+.details-row{
+  @include respond(tablet-small){
+    display: flex;
+    align-items: flex-start;
+  }
+}
+.download-btn__wrapper{
+  width: 100%;
+  margin-top: 30px;
+  @include respond(tablet-small) {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+}

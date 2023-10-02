@@ -46,7 +46,7 @@ const NewsDetail = () => {
 
     data = result[0];
 
-
+    console.log(data);
     const url = data.publishMedia[0].youtubeUrl;
     const urlArr = url.split('https://youtu.be/');
 
@@ -154,13 +154,14 @@ const NewsDetail = () => {
             <div className={`tab btn ${tab === 3 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(3)}>Transcript</div>
             <div className={`tab btn ${tab === 4 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(4)}>Citation</div>
             <div className={`tab btn ${tab === 5 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(5)}>Related Stories</div>
-          </section>
+        </section>
           <section className={`tabs tabs--fixed ${fixedContentVisible ? "is--visible" : ""}`}>
             <div className={`tab btn ${tab === 1 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(1)}>Details</div>
             <div className={`tab btn ${tab === 2 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(2)}>Context</div>
             <div className={`tab btn ${tab === 3 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(3)}>Transcript</div>
             <div className={`tab btn ${tab === 4 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(4)}>Citation</div>
             <div className={`tab btn ${tab === 5 ? 'btn--pink' : 'btn--white'}`} onClick={() => handleClick(5)}>Related Stories</div>
+
           </section>
 
           <Element tab={tab} data={data} id={id} interviews={interviews} fixedContentVisible={fixedContentVisible}

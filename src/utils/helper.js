@@ -367,6 +367,7 @@ export const calcFilterData = (interviews, filters, searchKey) => {
 
       return (item.accessionName.indexOf(searchKeyCapitalised) > -1) || 
              (item.narratorNameD.indexOf(searchKeyCapitalised) > -1) ||
+             (item.docLink.indexOf(searchKeyCapitalised) > -1) ||
              (item.interviewer.name.indexOf(searchKeyCapitalised) > -1) ||
              (item.interviewer.bio.indexOf(searchKeyCapitalised) > -1) ||
              (item.migration.name.indexOf(searchKeyCapitalised) > -1) ||

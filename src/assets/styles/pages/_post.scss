@@ -109,6 +109,8 @@
     display: flex;
     flex-wrap: wrap;
     padding: 26px svw(19px);
+    align-items: center;
+    justify-content: space-between;
     @include respond(tablet) {
       padding: vw(56px) vw(220px) vw(43px);
     }
@@ -134,6 +136,9 @@
         z-index: 10;
         pointer-events: all;
         transition: .3s ease;
+      }
+      .download-btn__wrapper{ 
+        margin-top: 0px;
       }
     }
    

@@ -5,6 +5,9 @@ const Details = ({data}) => {
 
   return (
     <section className="details tab-content">
+      <div className="details-row">
+
+     
       <div className="details__info">
         <span className="details__label">Narrator</span>
         <span className="details__name">{ data.narratorNameD ? data.narratorNameD : 'N/A' }</span>
@@ -44,6 +47,10 @@ const Details = ({data}) => {
 
         <span className="details__label">Interviewer</span>
         <span className="details__name">{ data.interviewer.name ? data.interviewer.name : 'N/A' }</span>
+      </div>
+      <div className="download-btn__wrapper">
+               <a className="btn btn--small btn--white btn--download" href={data.docLink} download target="_blank" rel="noopener noreferrer">Download Document</a>
+            </div>
       </div>
 
     </section>
