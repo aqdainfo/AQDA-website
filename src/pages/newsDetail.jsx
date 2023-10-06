@@ -46,7 +46,6 @@ const NewsDetail = () => {
 
     data = result[0];
 
-    console.log(data);
     const url = data.publishMedia[0].youtubeUrl;
     const urlArr = url.split('https://youtu.be/');
 
