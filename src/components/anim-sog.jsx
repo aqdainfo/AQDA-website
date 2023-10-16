@@ -14,7 +14,7 @@ const AnimSOG = () => {
       <ShapeBtn class="anim__item--lesbian" quantity={ses['Lesbian']} name="Lesbian" />
       <ShapeBtn class="anim__item--bisexual" quantity={ses['Bisexual']} name="Bisexual" />
       <ShapeBtn class="anim__item--heterosexual" quantity={ses['Heterosexual']} name="Heterosexual" />
-      <ShapeBtn class="anim__item--trans" quantity={ses['Trans']} name="Trans" />
+      <ShapeBtn class="anim__item--trans" quantity={genders['Transgender']} name="Intersex" />
       <ShapeBtn class="anim__item--gay" quantity={ses['Gay']} name="Gay" />
       <ShapeBtn class="anim__item--non-binary" quantity={genders['Non-binary']} name="Non-binary" />
     </div>

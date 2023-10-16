@@ -1,7 +1,7 @@
 
 const Details = ({data}) => {
   const year = new Date().getFullYear();
-
+  const genders = data.genders.split(',');
 
   return (
     <section className="details tab-content">
@@ -16,7 +16,7 @@ const Details = ({data}) => {
         <span className="details__name">{ data.narrator.birthYear ? year - parseInt(data.narrator.birthYear) : 'N/A' }</span>
         
         <span className="details__label">Gender</span>
-        <span className="details__name">{ data.genders !== undefined ? data.genders : 'N/A' }</span>
+        <span className="details__name">{genders.map(item => item == 'Transgender' ? 'Intersex, ' : item + ', ')}</span>
         
         <span className="details__label">Sexual Orientation</span>
         <span className="details__name">{ data.sexo ? data.sexo : 'N/A' }</span>
