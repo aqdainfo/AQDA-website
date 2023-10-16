@@ -65,7 +65,7 @@ const SearchBox = ({open, setOpen}) => {
                  data-key={key}
                  onClick={ () =>  onFilterHandle('gen', key, interviews.filters.gen[key].checked) }
             >
-              {`${key} (${interviews.filteredDataByType.gen[key]})`}
+              {key === 'Transgender' ? `Intersex (${interviews.filteredDataByType.gen[key]})` : `${key} (${interviews.filteredDataByType.gen[key]})`}
             </div>
           )}
         </div>
