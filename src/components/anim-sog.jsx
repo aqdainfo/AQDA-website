@@ -8,7 +8,7 @@ const AnimSOG = () => {
   return (
     <div className="anim__sog anim__wrapper">
       <ShapeBtn class="anim__item--queer" quantity={ses['Queer']} name="Queer" />
-      <ShapeBtn class="anim__item--pansexual" quantity={ses['Pansexual']} name="Pansexual" />
+      <ShapeBtn class="anim__item--pansexual" quantity={ses['Pansexual ']} name="Pansexual" />
       <ShapeBtn class="anim__item--male" quantity={genders['Male']} name="Male" />
       <ShapeBtn class="anim__item--female" quantity={genders['Female']} name="Female" />
       <ShapeBtn class="anim__item--lesbian" quantity={ses['Lesbian']} name="Lesbian" />
