@@ -356,6 +356,25 @@ export const filterBySexos = (items, ses) => {
   return sesData;
 }
 
+// init keywords
+export const initKeywords = data => data.map( item => {
+    return {
+      ...item,
+      keywords: new Set(item.publishMedia.flatMap(media => media.transcriptions)
+          .flatMap(transcription =>
+              `${transcription.keywords || ""};${transcription.subject || ""}`
+                  .split(";")
+                  .filter(it => it.length > 0)
+                  .map(it => it.trim().toLowerCase())
+          )
+      )
+    }
+})
+
+export const filterByKeyword = (item, searchKey) => {
+
+}
+
 export const calcFilterData = (interviews, filters, searchKey) => { 
   let result = []
 
@@ -375,7 +394,8 @@ export const calcFilterData = (interviews, filters, searchKey) => {
              (item.genders.indexOf(searchKeyCapitalised) > -1) ||
              (item.pronouns.indexOf(searchKeyCapitalised) > -1) ||
              (item.sexo.indexOf(searchKeyCapitalised) > -1) ||
-             (item.contextual.indexOf(searchKeyCapitalised) > -1)
+             (item.contextual.indexOf(searchKeyCapitalised) > -1) ||
+             (item.keywords.has(searchKeyCapitalised.trim().toLowerCase()))
 
     })
   } else {

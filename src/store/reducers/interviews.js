@@ -1,5 +1,20 @@
 import * as ActionTypes from '../constants';
-import { initGenders, filterByGenders, calcFilterData, initLanguages, filterByLanguages, initDates, filterByDates, initSexos, filterBySexos, initMigrations, filterByMigrations, initCountries, filterByCountries } from '../../utils/helper';
+import {
+  initGenders,
+  filterByGenders,
+  calcFilterData,
+  initLanguages,
+  filterByLanguages,
+  initDates,
+  filterByDates,
+  initSexos,
+  filterBySexos,
+  initMigrations,
+  filterByMigrations,
+  initCountries,
+  filterByCountries,
+  initKeywords
+} from '../../utils/helper';
 
 const initState = {
   interviews: [],
@@ -49,10 +64,14 @@ const interviewReducer = (state = initState, action) => {
       const initses =  filterBySexos(payload, ses);
       const initcountries =  filterByCountries(payload, countries);
 
+      // extract keywords from interview media and store for filtering
+      const interviews = initKeywords(payload)
+      console.log(interviews)
+
       return {
         ...state,
-        interviews: payload,
-        filterData: payload,
+        interviews: interviews,
+        filterData: interviews,
         filters: {
           migrations,
           gen,
