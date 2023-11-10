@@ -58,7 +58,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
           });
 
         });
-        item.keywords.split('; ').forEach(keyword => {
+        item.keywords?.split('; ')?.forEach(keyword => {
           if (keyword.toLowerCase() === searchKey.toLowerCase()) {
             searchedItems.push(
               {
