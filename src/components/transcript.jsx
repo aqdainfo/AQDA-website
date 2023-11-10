@@ -18,26 +18,14 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
   const [isTranscript, setIsTranscript] = useState(true);
   const [curTranscript, setCurTranscript] = useState(0);
   const totalCountDefault = transcripts.length;
-  const [searchKey, setSearchKey] = useState('');
   const [highlightKey, setHighlightKey] = useState('');
   const [filteredItems, setFilteredItems] = useState(transcripts);
   const [totalCount, setTotalcount] = useState(totalCountDefault);
   const [activeAccordionItem, setActiveAccordionItem] = useState('');
 
-
-
-
-  const handleInput = useCallback(e => {
-    let value = e.target.value.toString();
-    setSearchKey(value);
-  }, []);
-
-
-
-
-
-  const searchHandler = useCallback((e) => {
+  const searchHandler = e => {
     e.preventDefault();
+    let searchKey = e.target.elements.searchKey.value.toString()
 
     let searchedItems = [];
     transcripts.forEach((item, idx) => {
@@ -75,7 +63,7 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
     setHighlightKey(searchKey);
 
 
-  }, [searchKey, filteredItems]);
+  }
 
 
   function handleClick(flag) {
@@ -129,11 +117,10 @@ const Transcript = ({ data, fixedContentVisible, timestamp, ref, videoTimestampH
           <div className="transcript__search">
             <form onSubmit={searchHandler}>
               <input
+                name="searchKey"
                 type="text"
                 placeholder='keyword'
                 className='transcript__searchbox'
-                onChange={handleInput}
-                value={searchKey}
               />
               <input type="submit" className="transcript__searchbtn" value="Search Word" />
             </form>
