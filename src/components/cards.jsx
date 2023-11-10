@@ -20,7 +20,7 @@ const Card = ({ data, exClass=' expand' }) => {
         <p className="card__video-time">{ data.publishMedia[0] && parseInt(data.publishMedia[0].length / 60) } minutes</p>
         <div className="card__tags">
           <span className="card__tag">{ data.sexo}, </span>
-          <span className="card__tag">{genders.map(item => item == 'Transgender' ? 'Intersex, ' : item + ', ')} </span>
+          <span className="card__tag">{genders.map(item => item === 'Transgender' ? 'Intersex, ' : item + ', ')} </span>
           <span className="card__tag">{ data.language.name }, </span>
           <span className="card__tag">{ data.escapeCountry }</span>
         </div>

@@ -4,10 +4,6 @@ import { jsonToBibtex } from "@devisle/reference-js";
 import { toXML } from 'jstoxml';
 
 
-
-const { Cite } = require('@citation-js/core');
-
-
 const DownloadManager = (props) => {
 
     const pageTitle = props.data.key;
@@ -17,8 +13,6 @@ const DownloadManager = (props) => {
     const doi = props.data.doi;
     const abstract = props.data.abstract;
     const url = props.data.url;
-    const accessedDate = props.data.accessedDate;
-    const publishedDate = props.data.publishedDate;
 
     const record = {
         author: props.data.author,
@@ -294,9 +288,10 @@ FD ${record.accessedDate}
             .catch(error => setExample(error.message));
     }, []);
 
+    // TODO are these used, they look wrong?
     const downloadXmlFile = () => {
         const el = React.createElement("animal", { type: "guinea pig", name: "Sparkles" });
-        const elementXML = renderToStaticMarkup(el);
+        renderToStaticMarkup(el);
 
 
         const file = new Blob([xmlFile], { type: 'text/xml' });
@@ -311,7 +306,7 @@ FD ${record.accessedDate}
     }
 
     const downloadBibtexFile = () => {
-        const bibEl = jsonToBibtex(JSON.stringify(content), "references");
+        //const _ = jsonToBibtex(JSON.stringify(content), "references");
         const file = new Blob([example], { type: 'application/x-bibtex' });
         //const file = '';
         const element = document.createElement("a");

@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useState, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 import Card from '../components/cards';
 import AnimMig from '../components/anim-mig';
 import AnimSog from '../components/anim-sog';
-import * as InterviewACtions from '../store/actions/interviews';
 import data from '../global';
 
 const Home = () => {
