@@ -1,6 +1,7 @@
 {
   "name": "aqda",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "homepage": "https://aqda.au",
   "private": true,
   "dependencies": {
     "@citation-js/core": "^0.6.8",
