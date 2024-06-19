@@ -1,0 +1,132 @@
+.search {
+  width: 100%;
+  padding: 28px svw(20px);
+  position: fixed;
+  top: 69px;
+  left: 0;
+  background-color: $c-white;
+  transform: translateX(100%);
+  border-left: 1px solid $c-black;
+  @include transition;
+
+  &.open {
+    transform: translateX(0);
+    height: calc(100vh - 69px);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @include respond(tablet) {
+      height: 100vh;
+    }
+  }
+
+  .btn {
+    font-size: 16px;
+    line-height: 130%;
+  }
+
+  @include respond(tablet) {
+    width: 669px;
+    height: 100vh;
+    padding: 28px 50px 30px;
+    top: 0;
+    left: auto;
+    right: 0;
+  }
+
+  &__submit {
+    margin-right: 9px;
+    margin-top: 15px;
+
+    @include when-inside('.search__input__wrapper--bottom') {
+      margin-right: 50px;
+    }
+  }
+
+  &__reset {
+    margin-top: 15px;
+  }
+
+  &__sm-label {
+    font-size: 16px;
+    line-height: 130%;
+  }
+
+  &__label {
+    font-size: 16px;
+    line-height: 130%;
+    @include respond(tablet) {
+      font-size: 20px;
+    }
+  }
+
+  &__lg-label {
+    font-size: 20px;
+    line-height: 130%;
+    @include respond(tablet) {
+      font-size: 23px;
+    }
+  }
+
+  &__result {
+    margin-top: 30px;
+
+    .search__label {
+      margin-bottom: 16px;
+    }
+
+    &__item {
+      display: block;
+      margin-top: 10px;
+
+      @include hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__input {
+    margin-top: 15px;
+    @include respond(tablet) {
+      margin-top: 40px;
+    }
+    
+    &__wrapper {
+      margin-top: 20px;
+
+      &--bottom {
+        margin-top: 40px;
+      }
+    }
+    
+    &__field {
+      height: 100%;
+      padding: 12px 11px;
+      margin-right: 9px;
+      border-radius: 50px;
+      border: 1px solid $primary;
+      outline: none;
+      font-size: 16px;
+      line-height: 130%;
+      font-family: $f-text;
+    }
+  }
+
+  &__filter {
+    margin-top: 25px;
+
+    &__wrapper {
+      .btn {
+        margin-top: 15px;
+
+        &:not(:last-child) {
+          margin-right: 9px;
+        }
+      }
+    }
+  }
+}
+mark {
+  background-color: yellow;
+  color: inherit;
+}

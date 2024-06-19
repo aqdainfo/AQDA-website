@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+//Colors
+$primary: #191718;
+
+$c-black: #000;
+$c-red: #f00;
+$c-white: #fff;
+
+$c-yellow: #EDB81E;
+$c-off-white: #E5E5E5;
+$c-pink: #DDB7C9;
+$c-forest-green: #40552A;
+
+$c-grey: rgba($c-white, 0.5);
+$c-grey-18: #181818;
+
+//Media query breakpoints
+$viewport-sm: 390px;
+$viewport-md: 768px;
+$breakpoints: (
+  "phone-xsmall": 320px,
+  "phone-s21": 360px,
+  "phone-small": 375px,
+  "phone": 425px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 992px,
+  "desktop-small": 1024px,
+  "desktop": 1200px,
+  "desktop-wide": 1439px,
+  "desktop-ultra": 1599px,
+);
+
+// Font name
+$f-heading: "ArchivGrotesk Regular";
+$f-text: "Silka";
+$f-text-italic: "Silka RegularItalic";

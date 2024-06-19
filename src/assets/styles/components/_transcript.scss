@@ -1,0 +1,327 @@
+.transcript {
+  padding: 0 svw(19px);
+  display: flex;
+  flex-direction: column-reverse;
+  @include respond(tablet) {
+    padding: 0 vw(220px);
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__info {
+    margin-top: 25px;
+    @include respond(tablet) {
+      width: vw(573px);
+    }
+  }
+
+  &__item {
+    &:not(:first-child) {
+      margin-top: 25px;
+      @include respond(tablet) {
+        margin-top: vw(40px);
+      }
+    }
+  }
+
+  &__inner {
+    padding-left: svw(44px);
+    @include respond(tablet) {
+      padding-left: vw(50px);
+      padding-right: vw(93px);
+    }
+  }
+
+  &__filter {
+    @include respond(tablet){
+    height: max-content;
+    position: sticky;
+    top: 220px;
+    }
+  }
+
+  &__header {
+    margin-bottom: 30px;
+    .text-under {
+      text-decoration: underline;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    @include respond(tablet-small){
+      width: 450px;
+    }
+    @include respond(tablet){
+      width: 30vw;
+    }
+    @include respond(desktop){
+      width: 450px;
+    }
+    @include respond(tablet){
+      border: 1px solid black;
+      padding: 20px;
+      padding-bottom: 20px;
+
+    }
+  }
+
+  &__search {
+    margin-bottom: 33px;
+    @include respond(tablet-small){
+      margin-bottom: 50px;
+    }
+    @include respond(tablet){
+      margin-bottom: 20px;
+    }
+  }
+  
+  &__searchbox {
+    border: 1px solid black;
+    border-radius: 20px 0 0 20px;
+    padding: 11px 20px;
+    font-size: 16px;
+    width: calc(100% - 150px);
+    font-family: $f-text;
+    @include respond(tablet-small){
+      width: calc(100% - 125px);
+    }
+
+    @include focus{
+
+      &::placeholder{
+        opacity: 0;
+        @include transition;
+      }
+    }
+  }
+
+  &__searchbtn {
+    margin-left: -30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: $c-yellow;
+    font-size: 16px;
+    line-height: 130%;
+    padding: 11px 24.5px;
+    transition: 0.5s;
+    font-family: $f-text;
+    cursor: pointer;
+    &:hover {
+      background-color: $c-pink;
+    }
+  }
+
+  &__result {
+    border: 1px solid $c-black;
+    padding: 22px;
+    @include respond(tablet-small){
+      padding-right: 18px;
+    }
+    @include respond(tablet){
+      padding: 0;
+      border: none;
+    }
+    &__header {
+      margin-bottom: 23px;
+      @include respond(tablet-small){
+        display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+      align-items: center
+          }
+          @include respond(tablet){
+            margin-bottom: 27px;
+          }
+      p{
+        @extend %heading--4;
+        margin-bottom: 26px;
+        @include respond(tablet-small){
+          font-size: 20px;
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__index{
+      margin-right: 10px;
+    }
+    &__buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      @include respond(tablet-small){
+        width: 110px;
+      }
+      @include respond(tablet){
+        width: 43px;
+      }
+
+      button{
+        background-color: $c-white;
+        @include respond(tablet-small){
+          width: 34px;
+        }
+        @include respond(tablet){
+          width: 16px;
+        }
+      }
+      img{
+        width: 100%;
+      }
+      .next__page {
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .prev__page {
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+    }
+    &__content {
+      @include respond(tablet){
+        max-height: 40vh;
+        overflow: scroll;
+      }
+    }
+    &__segmenttitle{
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+  
+    &__item {
+      position: relative;
+      display: flex;
+      width: fit-content;
+      align-items: flex-start;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 0;
+      font-size: 18px;
+        p, span{
+        line-height: 200%;
+        }
+      
+    }
+    &__timestamp {
+      margin-right: 20px;
+      font-size: 22px;
+    }
+  }
+
+
+
+.is--hidden{
+  position: absolute;
+  left: -999;
+  opacity: 0;
+}
+
+
+
+
+
+
+  &__timestamp {
+    font-size: 20px;
+    line-height: 130%;
+    font-family: $f-heading;
+    margin-top: 26px;
+    span{
+      margin-right: 20px;
+    }
+    @include respond(tablet) {
+      font-size: 30px;
+      font-family: $f-text;
+    }
+  }
+
+  &__subheading {
+    font-size: 20px;
+    line-height: 130%;
+    font-family: $f-heading;
+    margin-top: 25px;
+    @include respond(tablet) {
+      font-size: 23px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 130%;
+    margin-top: 10px;
+  }
+
+  &__keywords {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__keyword {
+    padding: 12px 11px;
+    font-size: 16px;
+    line-height: 19px;
+    border: 1px solid $primary;
+    border-radius: 50px;
+    margin-top: 10px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+.transcripts{
+  &__timestamp{
+    &--fixed{
+      position: fixed;
+      top: 280px;
+      z-index: 10;
+      background: $c-white;
+      opacity: -1;
+      z-index: -1;
+      pointer-events: none;
+      transition: all .3s ease;
+      padding-bottom: 10px;
+      @include respond(tablet-small){
+        top: 165px;
+
+      }
+      &.is--visible{
+        opacity: 1;
+        z-index: 10;
+        transition: all .3s ease;
+        pointer-events: all;
+      }
+    }
+  }
+}
+.transcripts__timestamp{
+  @extend %heading--3;
+  margin-bottom: 34px;
+  @include respond(tablet){
+    margin-bottom: 40px;
+  }
+}
+.transcript__timestamp-var{
+  margin-left: 5px;
+}
+.transcript-gen{
+  margin-bottom: 34px;
+  h3{
+    @extend %heading--3;
+    margin-bottom: 10px;
+  }
+  p{
+    @extend .p1;
+  }
+  @include respond(tablet){
+    margin-bottom: 40px;
+  }
+  &:last-child{
+    margin-bottom: 0;
+  }
+}

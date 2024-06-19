@@ -1,0 +1,142 @@
+.footer {
+  background-color: $primary;
+  color: $c-white;
+
+  &__top {
+    padding: 28px svw(20px) 40px;
+    @include respond(tablet-small){
+      display: flex;
+      justify-content: space-between;
+      padding: 29px vw(52px) 22px;
+      align-items: flex-start;
+    }
+    @include respond(tablet) {
+      padding: vw(42px) vw(69px) vw(32px) vw(89px);
+      
+    }
+  }
+
+  &__logo {
+    img {
+      width: 100%;
+      @include respond(tablet-small) {
+        width: 316px;
+      }
+      @include respond(tablet) {
+        width: vw(466px);
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+    @include respond(tablet) {
+      display: flex;
+      flex-flow: column;
+
+      &__link {
+        font-size: 16px;
+        line-height: 130%;
+        &:not(:first-child) {
+          margin-top: vw(20px);
+        }
+        @include hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__social {
+    display: none;
+    @include respond(tablet) {
+      display: flex;
+      flex-flow: column;
+      
+      &__link {
+        &:not(:first-child) {
+          margin-top: vw(10px);
+        }
+        svg path {
+          @include transition;
+
+        }
+        @include hover {
+          svg path {
+            fill: $c-pink;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 20px svw(20px) 16px;
+    border-top: 1px solid $c-white;
+
+    @include respond(tablet) {
+      padding: 10px vw(80px);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    
+  }
+
+  &__extra {
+    position: relative;
+    @include respond(desktop) {
+      display: flex;
+    }
+
+    &__nav {
+      @include respond(tablet-small){
+        position: absolute;
+        right: 0;
+        width: 220px;
+        top: 0;
+        text-align: right;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-top: 0;
+      }
+      @include respond(tablet){
+        position: static;
+        flex-wrap: nowrap;
+        width: unset;
+      }
+      @include respond(desktop, max) {
+        margin-top: 10px;
+      }
+    }
+
+    &__link {
+      margin-left: 6px;
+      @include hover {
+        text-decoration: underline;
+      }
+      @include respond(tablet-small){
+        margin-bottom: 5px;
+      }
+      @include respond(tablet, max) {
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &__builder {
+    @include respond(tablet, max) {
+      margin-top: 10px;
+    }
+
+    a {
+      @include hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+}

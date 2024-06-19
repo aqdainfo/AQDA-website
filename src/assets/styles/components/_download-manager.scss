@@ -1,0 +1,86 @@
+.download-manager__popup{
+    position: fixed;
+    right: 0;
+    top: 69px;
+    background: $c-white;
+    padding-top: 21px;
+    padding-left: 35px;
+    padding-right: 20px;
+    z-index: 200;
+    padding-bottom: 36px;
+    height: 100%;
+    width: 100%;
+    @include respond(tablet-small){
+        width: 371px;
+        border-left: 1px solid $primary;
+        padding-top: 21px;
+        padding-left: 27px;
+        padding-right: 11px;
+    }
+    @include respond(tablet){
+        top: 73px;
+    }
+    
+}
+.download-manager--close{
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    @include respond(tablet-small){
+        right: 28px;
+    }
+}
+.download-manager__inner{
+    overflow: scroll;
+    height: 100%;
+    @media screen and (max-height: 600px) {
+        padding-bottom: 80px;
+        padding-top: 30px;
+    }
+}
+.download-manager__subtitle{
+    font-size: 16px;
+    line-height: 130%;
+    margin-bottom: 56px;
+    @include respond(tablet-small){
+        margin-bottom: 50px;
+    }
+}
+.download-manager__title{
+    @extend %heading--3;
+    margin-bottom: 20px;
+    @include respond(tablet-small){
+        margin-bottom: 10px;
+        max-width: 300px;
+    }
+}
+.download-manager__copy{
+    margin-bottom: 36px;
+    max-width: 290px;
+    @include respond(tablet-small){
+        margin-bottom: 93px;
+    }
+    p{
+        @extend %p4;
+    }
+}
+.download-manager__file{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+    @include respond(tablet-small){
+        gap: 35px;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+.download-manager__file-name{
+    @extend %heading--4;
+}
+.download-manager__file-button{
+    line-height: 19px;
+
+}

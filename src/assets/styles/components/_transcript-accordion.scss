@@ -1,0 +1,48 @@
+.transcript__accordion{
+    border: 1px solid $primary;
+    padding: 12px 25px;
+    border-radius: 28px;
+    margin-top: 12px;
+    cursor: pointer;
+    @include respond(tablet-small){
+        margin-top: 25px;
+    }
+    .transcript__accordion-heading{
+        margin-top: 0;
+        font-size: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        justify-content: space-between;
+    }
+    .transcript__subheading{
+        margin-top: 20px;
+        @include respond(tablet-small){
+            margin-top: 25px;
+        }
+    }
+    .transcript__timestamp{
+        font-size: 16px;
+        width: 90px;
+        margin-top: 0;
+        @include respond(tablet-small){
+            width: 117px;
+        }
+    }
+    .transcript__inner{
+        padding-left: 0;
+        @include respond(tablet-small){
+        padding-left: 115px;
+        padding-right: 25px;
+        }
+    }
+    .transcript__title{
+        width: calc(100% - 90px);
+        @include respond(tablet-small){
+        width: calc(100% - 117px);
+        }
+    }
+}
+.transcript__item:not(:first-child).transcript__accordion{ 
+    margin-top: 12px;
+}

@@ -1,0 +1,465 @@
+.anim {
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    @include respond(tablet-wide, max) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    width: vw(139px, 390px);
+    height: vw(139px, 390px);
+    display: inline-flex;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 26px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    font-family: $f-heading;
+    margin-bottom: vw(40px, 390px);
+    color: $primary;
+    animation: leaves 3s ease-in-out infinite alternate;
+    -webkit-animation: leaves 3s ease-in-out infinite alternate;
+    border: none;
+    background: none;
+    @include respond(tablet-small){
+      width: vw(139px, 834px);
+     height: vw(139px, 834px);
+     font-size: 16px;
+     position: absolute;
+    }
+    @include respond(tablet-wide) {
+      position: absolute;
+      margin-bottom: 0;
+      font-size: 20px;
+    }
+
+    &:nth-child(2n+1):not(:last-child) {
+      margin-right: 12vw;
+      @include respond(tablet-small) {
+        margin-right: 10px;
+      }
+      @include respond(tablet-wide) {
+        margin-right: 0;
+      }
+    }
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      content: '';
+      position: absolute;
+      z-index: -1;
+    }
+
+    &--asylum {
+      @include respond(tablet-small) {
+        width: 255px;
+        height: 255px;
+        top: 240px;
+        right: 31px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(450px);
+        height: vw(450px);
+        bottom: 0;
+        right: 0;
+        top: unset;
+      }
+
+      &::before {
+        background-color: $c-pink;
+        transform: rotate(3deg);
+        @include respond(tablet-small){
+          transform: rotate(-2.2deg);
+        }
+        @include respond(tablet-wide){
+          transform: rotate(3deg);
+        }
+      }
+    }
+
+    &--migrant {
+      color: $c-white;
+      animation-delay: 1s;
+      &::before{
+        @include respond(tablet-small) {
+          top: 10px;
+        }
+        @include respond(tablet-wide) {
+          top: unset;
+        }
+      }
+      @include respond(tablet-small) {
+        width: 84px;
+        height: 84px;
+        right: 39px;
+        top: 60px;
+      }
+      @include respond(tablet-wide) {
+        width: 95px;
+        height: 95px;
+        top: vw(10px);
+        left: vw(210px);
+        right: unset;
+        align-items: center;
+      }
+
+      &::before {
+        background-color: $c-forest-green;
+        transform: rotate(45deg);
+        @include respond(tablet-small) {
+          transform: rotate(40.34deg);
+
+        }
+      }
+    }
+    
+    &--refugee {
+      animation-delay: 3s;
+      @include respond(tablet-small) {
+        width: 128px;
+        height: 128px;
+        right: 154px;
+        top: 110px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(320px);
+        height: vw(320px);
+        color: $primary;
+        bottom: vw(28px);
+        left: 0;
+        top: unset;
+        right: unset;
+      }
+
+      &::before {
+        background-color: $c-yellow;
+        border-radius: 50%;
+      }
+    }
+
+    &--queer {
+      @include respond(tablet-small) {
+        width: 83px;
+        height: 83px;
+        top: 70px;
+        left:60px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(150px);
+        height: vw(150px);
+        top: vw(38px);
+        left: vw(50px);
+      }
+
+      &::before {
+        transform: rotate(45deg);
+        background-color: $c-pink;
+      }
+    }
+
+    &--plus {
+      color: $c-white;
+      animation-delay: 3s;
+
+      @include respond(tablet-wide) {
+        width: vw(165px);
+        height: vw(165px);
+        top: vw(64px);
+        right: vw(200px);
+      }
+
+      &::before {
+        border-radius: 50%;
+        background-color: $c-forest-green;
+      }
+    }
+
+    &--pansexual {
+      color: $c-white;
+      animation-delay: 4s;
+      @include respond(tablet-small) {
+        width: 87px;
+        height: 87px;
+        top: 140px;
+        right: 73px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(150px);
+        height: vw(150px);
+        top: 1vw;
+        right: 3.16vw;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+        background-color: $c-black;
+        @include respond(tablet-small) {
+          top: 5px;
+        }
+      }
+    }
+    
+    &--male {
+      animation-delay: 1s;
+      @include respond(tablet-small) {
+        width: 82px;
+        height: 82px;
+        top: 60px;
+        right: 0;
+      }
+      @include respond(tablet-wide) {
+        width: vw(165px);
+        height: vw(165px);
+        top: vw(210px);
+        left: vw(10px);
+        right: unset;
+      }
+
+      &::before {
+        border-radius: 50%;
+        background-color: $c-yellow;
+      }
+    }
+
+    &--female {
+      color: $c-white;
+      animation-delay: 2s;
+      @include respond(tablet-small) {
+        width: 178px;
+        height: 178px;
+        top: 240px;
+        left: 65px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(275px);
+        height: vw(275px);
+        top: 10.36vw;
+        left: 12.48vw;
+      }
+
+      &::before {
+        transform: rotate(-20deg);
+        background-color: $c-forest-green;
+        @include respond(tablet-small) {
+          transform: rotate(-2.2deg);
+
+        }
+        @include respond(tablet-wide) {
+          transform: rotate(-20deg);
+        }
+      }
+    }
+
+    &--lesbian {
+      animation-delay: 3s;
+      @include respond(tablet-small) {
+        width: 99px;
+        height: 99px;
+        top: 430px;
+        left: 100px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(225px);
+        height: vw(225px);
+        top: 14.46vw;
+        left: unset;
+        right: 5.48vw;
+      }
+
+      &::before {
+        border-radius: 50%;
+        background-color: $c-pink;
+      }
+    }
+
+    &--bisexual {
+      animation-delay: 1s;
+      @include respond(tablet-small) {
+        width: 73px;
+        height: 73px;
+        top: 430px;
+        right: 80px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(90.6px);
+        height: vw(90.6px);
+        bottom: -4.2vw;
+        left: -2.6vw;
+        right: unset;
+        top: unset;
+      }
+
+      &::before {
+        transform: rotate(10deg);
+        background-color: $c-yellow;
+        @include respond(tablet-small) {
+          transform: rotate(40.34deg);
+          top: 10px;
+        }
+        @include respond(tablet-wide) {
+          transform: rotate(10deg);
+          top: 0px;
+        }
+      }
+    }
+
+    &--heterosexual {
+      color: $c-white;
+      @include respond(tablet-small) {
+        width: 116px;
+        height: 116px;
+        top: 300px;
+        right: 17px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(165px);
+        height: vw(165px);
+        bottom: -5.8vw;
+        left: 4.08vw;
+        top: unset;
+        right: unset;
+      }
+
+      &::before {
+        border-radius: 50%;
+        background-color: $primary;
+        @include respond(tablet-small) {
+          top: 5px;
+        }
+        @include respond(tablet-wide) {
+          top: 0;
+        }
+      }
+    }
+
+    &--trans {
+      animation-delay: 4s;
+      height: vw(75px, 390px);
+      @include respond(tablet-small) {
+        width: 125px;
+        height: 62px;
+        top: 60px;
+        right: 110px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(280px);
+        height: vw(140px);
+        bottom: -8.5vw;
+        left: 18.08vw;
+        right: unset;
+        top: unset;
+      }
+
+      &::before {
+        background-color: $c-yellow;
+        transform: rotate(-10deg);
+        border-bottom-left-radius: vw(75px, 390px);
+        border-bottom-right-radius: vw(75px, 390px);
+        @include respond(tablet-small) {
+          border-bottom-left-radius: 75px;
+          border-bottom-right-radius: 75px;
+          transform: rotate(25deg);
+          top: 5px;
+        }
+        @include respond(tablet-wide) {
+          border-bottom-left-radius: vw(140px);
+          border-bottom-right-radius: vw(140px);
+          transform: rotate(-10deg);
+        }
+      }
+    }
+
+    &--gay {
+      animation-delay: 2s;
+      height: vw(75px, 390px);
+      @include respond(tablet-small) {
+        width: 124px;
+        height: 62px;
+        top: 230px;
+        right: -10px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(150px);
+        height: vw(75px);
+        bottom: -3.1vw;
+        right: 1.6vw;
+        top: unset;
+      }
+
+      &::before {
+        background-color: $c-pink;
+        transform: rotate(22deg);
+        @include respond(tablet-small) {
+          border-top-left-radius: 75px;
+          border-top-right-radius: 75px;
+          transform: rotate(150deg);
+          top: 5px;
+        }
+        @include respond(tablet-wide) {
+          border-top-left-radius: vw(75px);
+          border-top-right-radius: vw(75px);
+          transform: rotate(22deg)
+        }
+      }
+    }
+
+    &--non-binary {
+      color: $c-white;
+      animation-delay: 1s;
+      height: vw(75px, 390px);
+      @include respond(tablet-small) {
+        width: 145px;
+        height: 63px;
+        top: 160px;
+        left: 55px;
+      }
+      @include respond(tablet-wide) {
+        width: vw(150px);
+        height: vw(75px);
+        bottom: -8.5vw;
+        right: 7vw;
+        top: unset;
+        left: unset;
+      }
+
+      &::before {
+        border-bottom-left-radius: vw(75px, 390px);
+        border-bottom-right-radius: vw(75px, 390px);
+        background-color: $primary;
+        transform: rotate(5deg);
+
+        @include respond(tablet-small) {
+          border-bottom-left-radius: 75px;
+          border-bottom-right-radius: 75px;
+          transform: rotate(-15deg);
+          top: 5px;
+        }
+        @include respond(tablet-wide) {
+          border-bottom-left-radius: vw(75px);
+          border-bottom-right-radius: vw(75px);
+          transform: rotate(5deg);
+
+        }
+      }
+    }
+  }
+}
+
+@keyframes leaves {
+  0% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+  100% {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+  }
+}

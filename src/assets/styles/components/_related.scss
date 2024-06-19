@@ -1,0 +1,7 @@
+.related {
+  padding: 0 svw(19px) 67px;
+
+  @include respond(tablet) {
+    padding: 0 vw(466px) vw(164px) vw(244px);
+  }
+}

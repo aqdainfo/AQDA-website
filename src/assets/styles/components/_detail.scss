@@ -1,0 +1,49 @@
+.details {
+  padding: 0 svw(19px);
+  margin-bottom: 61px;
+  @include respond(tablet) {
+    padding: 0 vw(220px);
+    margin-bottom: vw(82px);
+  }
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    
+    @include respond(tablet) {
+      width: 500px;
+    }
+  }
+
+  &__label {
+    font-size: 16px;
+    line-height: 130%;
+    font-family: $f-heading;
+    display: flex;
+    align-items: center;
+
+    @include respond(tablet) {
+      font-size: 20px;
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+    line-height: 130%;
+  }
+}
+.details-row{
+  @include respond(tablet-small){
+    display: flex;
+    align-items: flex-start;
+  }
+}
+.download-btn__wrapper{
+  width: 100%;
+  margin-top: 30px;
+  @include respond(tablet-small) {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+}

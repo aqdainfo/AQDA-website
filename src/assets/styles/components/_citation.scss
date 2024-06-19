@@ -1,0 +1,169 @@
+.citation {
+    @include respond(tablet){
+        padding-bottom: 86px;
+    }
+    &__title{
+        @extend %heading--4;
+        margin-bottom: 11px;
+        @include respond(tablet) {
+            margin-bottom: 0;
+        }
+    }
+    &__subheading {
+        padding: 0 svw(19px);
+        padding-top: 8px;
+        @include respond(tablet) {
+            padding: 0 vw(220px);
+            display: flex;
+            align-items: center;
+        }
+        p{
+            font: 400 12px / 130% $f-text;
+            font-style: italic;
+            @include respond(tablet) {
+                margin-left: 15px;
+            }
+        }
+    }
+    .citation-tabs{
+        padding-top: 20px;
+        padding-bottom: 27px;
+        @include respond(tablet) {
+            padding-top: 14px;
+            padding-bottom: 40px;
+        }
+    }
+}
+
+.citation-box{
+    border-top: 1px solid $primary;
+    @include respond(tablet) {
+        margin-left: vw(220px);
+        width: 690px;
+        border: 1px solid $primary;
+        display: flex;
+       flex-direction: row-reverse;
+      }
+}
+.preview--mob{
+    padding: 9px svw(19px);
+    padding-bottom: 16px;
+    @extend %heading--4;
+    @include respond(tablet) {
+        display: none;
+    }
+}
+.citation-box__title{
+    border-top: 1px solid $primary;
+    border-bottom: 1px solid $primary;
+    padding: 12px svw(19px);
+    background: $c-yellow;
+    @include respond(tablet) {
+        border-top: none;
+        padding: 7px 17px;
+        height: 55px
+    }
+    h2{
+        @extend %heading--2;
+    }
+}
+.citation-box__inner{
+    @include respond(tablet) {
+        width: calc(100% - 220px);
+    }
+}
+.citation-box__content{
+    padding: 15px svw(19px);
+    border-bottom: 1px solid $primary;
+    padding-bottom: 33px;
+    @include respond(tablet) {
+        border-bottom: none;
+        padding: 20px;
+        padding-bottom: 27px;
+    }
+    .citation-row{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        @include respond(tablet) {
+            gap: 30px;
+        }
+        h4, p {
+            @extend %heading--4;
+        }
+        h4{
+            width: 60%;
+            @include respond(tablet) {
+                width: 55%;
+            }
+        }
+        p{
+            width: 35%;
+            @include respond(tablet) {
+                width: 45%;
+            }
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+.citation-box__buttons{
+    padding: 14px svw(19px);
+    padding-bottom: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include respond(tablet) {
+       align-items: flex-start;
+       padding: 20px;
+       justify-content: space-between;
+       height: 100%;
+       padding-bottom: 27px;
+    }
+    .wrap{
+        display: flex;
+        margin-bottom: 14px;
+        justify-content: center;
+        position: relative;
+        width: max-content;
+        @include respond(tablet) {
+            flex-direction: column;
+        }
+    }
+}
+.citation-box__actions{
+    @include respond(tablet) {
+        border-right: 1px solid $primary;
+        width: 220px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+.preview--desk{
+    @extend %heading--4;
+    padding-top: 12px;
+    padding-bottom: 17px;
+    padding-left: 60px;
+    border-bottom: 1px solid $primary;
+    height: 55px;
+
+}
+.citation-box__tooltip{
+    position: absolute;
+    bottom: -30px;
+    left: 10px;
+    height: max-content;
+}
+.citation-tab.tab.btn--small{
+        padding: 12px;
+        margin-right: 9px;
+}
+.btn--copy{
+    margin-right: 32px;
+    @include respond(tablet){
+        margin-bottom: 10px;
+    }
+}

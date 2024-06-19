@@ -1,0 +1,42 @@
+.p1{
+    font: 400 18px / 130% $f-text;
+}
+%p3{
+    font: 400 16px / 130% $f-text;
+    @include respond(tablet-small){
+        font-size: 18px;
+    }
+}
+%p4{
+    font: 400 12px / 130% $f-text;
+}
+%heading--1{
+    font: 400 30px / 130% $f-heading;
+    @include respond(tablet){
+        font-size: 40px;
+    }
+}
+%heading--2{
+    font: 400 24px / 130% $f-heading;
+    @include respond(tablet){
+        font-size: 30px;
+    }
+}
+%heading--3{
+    font: 400 20px / 130% $f-heading;
+    @include respond(tablet){
+        font-size: 23px;
+    }
+}
+%heading--4{
+    font: 400 16px / 130% $f-heading;
+    @include respond(tablet){
+        font-size: 20px;
+    }
+}
+p, a, h1, h2, h3, h4, h5, h6, strong, span {
+    @include selected;
+}
+button {
+    color: $c-black;
+}

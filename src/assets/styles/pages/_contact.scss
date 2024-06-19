@@ -1,0 +1,117 @@
+.contactpage {
+  .banner {
+    padding: 50px svw(19px);
+  
+    @include respond(tablet) {
+      display: flex;
+      justify-content: space-around;
+      padding: vw(102px) vw(145px) vw(77px) vw(71px);
+    }
+
+    &__content {
+      @include respond(tablet) {
+        flex-grow: 1;
+        padding-right: vw(100px);
+      }
+      @include respond(desktop) {
+        padding-right: vw(249px);
+
+      }
+    }
+
+    &__text {
+      margin-top: 19px;
+      @include respond(tablet) {
+        margin-top: vw(40px);
+      }
+    }
+
+    &__email {
+      font-size: 18px;
+      line-height: 60px;
+      margin-top: 19px;
+      
+      @include respond(tablet) {
+        margin-top: vw(40px);
+      }
+
+      a {
+        font-style: italic;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .form {
+    width: 100%;
+    margin-top: 19px;
+    display: flex;
+    flex-flow: column;
+    @include respond(tablet) {
+      width: clamp(350px, vw(455px), 500px);
+      margin-top: 0;
+      flex-shrink: 0;
+    }
+
+    &__box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 18px;
+      line-height: 130%;
+      color: $c-black;
+      font-weight: 400;
+      font-family: $f-text;
+      border: none;
+      background-color: #f3f3f3;
+      outline: none;
+      margin-bottom: 10px;
+      
+      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        font-family: $f-text;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 130%;
+        color: $c-black;
+        opacity: 1; /* Firefox */
+      }
+      
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        font-family: $f-text;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 130%;
+        color: $c-black;
+      }
+      
+      &::-ms-input-placeholder { /* Microsoft Edge */
+        font-family: $f-text;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 130%;
+        color: $c-black;
+      }
+
+      &--half {
+        width: calc(50% - 5px);
+      }
+
+      &--submit {
+        background-color: $c-forest-green;
+        text-transform: uppercase;
+        color: $c-white;
+        margin-bottom: 0;
+        cursor: pointer;
+        @include transition;
+
+        @include hover {
+          background-color: $c-yellow;
+        }
+      }
+    }
+  }
+}

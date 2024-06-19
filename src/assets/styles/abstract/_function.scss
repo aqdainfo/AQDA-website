@@ -1,0 +1,28 @@
+// Calculate VW
+@function vw($px-vw, $base-vw: 1440px) {
+  @return calc(calc($px-vw * 100vw) / $base-vw);
+}
+@function svw($px-vw, $base-vw: $viewport-sm) {
+  @return calc(calc($px-vw * 100vw) / $base-vw);
+}
+
+// Calculate Fontsize
+@function fs(
+  $mobile-font-size,
+  $desktop-font-size,
+  $mobile-viewport: 375px,
+  $desktop-viewport: 1440px
+) {
+  $font-diff: calc($desktop-font-size - $mobile-font-size) / 1px;
+  $viewport-diff: calc($desktop-viewport - $mobile-viewport) / 1px;
+
+  @return calc(
+    #{$mobile-font-size} + #{$font-diff} *
+      calc(calc(100vw - #{$mobile-viewport}) / #{$viewport-diff})
+  );
+}
+
+// Calculate heightPercent
+@function hp($width, $height) {
+  @return ($height / $width) * 100%;
+}

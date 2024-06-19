@@ -1,0 +1,69 @@
+.aboutpage {
+  .banner {
+    padding: 50px svw(19px);
+    @include respond(tablet) {
+      display: flex;
+      justify-content: space-between;
+      padding: vw(102px) vw(110px) vw(108px) vw(71px);
+    }
+
+    &__img {
+      width: 100%;
+      height: svw(332px);
+      max-height: 450px;
+
+      @include respond(tablet) {
+        width: vw(630px);
+        height: vw(595px);
+        max-height: 650px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 90px;
+      }
+
+      img {
+        @include contain-image;
+        @include respond(tablet) {
+          object-position: center left;
+        }
+      }
+    }
+
+    &__content {
+      @include respond(tablet) {
+        flex-grow: 1;
+        padding-left: vw(81px);
+      }
+    }
+
+    &__heading {
+      @include respond(tablet, max) {
+        margin-top: 50.5px;
+      }
+    }
+
+    &__text,
+    &__cta {
+      margin-top: 32px;
+      @include respond(tablet) {
+        margin-top: vw(40px);
+      }
+    }
+  }
+
+  .news {
+    margin-bottom: 67px;
+    @include respond(tablet) {
+      margin-bottom: 47px;
+    }
+    &__cta {
+      margin-top: 49px;
+      &-wrapper {
+        text-align: center;
+        @include respond(tablet) {
+          display: none;
+        }
+      }
+    }
+  }
+}
