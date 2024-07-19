@@ -115,14 +115,14 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="news news--top">
+  { /*  <section className="news news--top">
         <h2 className="news__heading">{cKey} Stories</h2>
         <div className="news__items">
           {topNews.map((item, idx) => (
             <Card data={ item } key={idx} />
           ))}
         </div>
-      </section>
+      </section>  */ }
     </div>
   )
 }

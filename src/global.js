@@ -2,10 +2,8 @@ const data = {
   'global': {
     'logoText': 'ASSEMBLING QUEER DISPLACEMENT ARCHIVE',
     'social': {
-      'twitter': 'https://google.com',
-      'youtube': 'https://google.com',
-      'linkedin': 'https://google.com',
-      'facebook': 'https://google.com',
+      'youtube': 'https://www.youtube.com/@aqda2023',
+      'instagram': 'https://www.instagram.com/aqda.history/',
     },
     'builder': 'Website by <a href="https://lutalica.studio/" target="__blank">Studio Lutalica.</a>',
     'footerText': 'Assembling Queer Displacement Archive.',
